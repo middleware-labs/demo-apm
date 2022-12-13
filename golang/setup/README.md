@@ -23,20 +23,65 @@ import (
     track "github.com/middleware-labs/golang-apm/tracker"
 )
 ```
----------------------
-
-## Collect Golang specific metrics
-
-Call track method in your main function
+Setup "Project Name" & "Service Name"
 ```
 go track.Track(
     track.WithConfigTag("service", "your-service-name"),
     track.WithConfigTag("projectName", "your-project-name"),
 )
 ```
-Running this method with go routine is important !
+---------------------
 
-This will start collecting the application Metrics
+## Collect Application specific metrics
+
+By default we record some basic metrics for Golang. Follow the steps given below to add custom metrics.
+
+### Step 1: Create MW meter
+
+Add this snippet
+```
+meter := track.Meter()
+``` 
+
+### Step 2: Select Relevant Instrument & Start Recording Data
+
+We support all the OTEL specified metric types with our custom meter
+https://pkg.go.dev/go.opentelemetry.io/otel/metric@v0.31.0#Meter
+
+This includes ....
+
+|    Type    |   Instruments   |
+| ------ | ---- |
+| Synchronous   | Counter, UpDownCounter, Histogram |
+| Asynchronous  | Counter, UpDownCounter, Gauge |
+
+Data collected through MW meter can then be  visualized in Middleware UI
+
+Example Snippets are as follows ... 
+
+```
+counter, err := meter.SyncFloat64().Counter("foo")
+if err != nil {
+    log.Fatalf("Failed to create the foo instrument: %v", err)
+}
+counter.Add(ctx, 1.45)
+```
+```
+histogram, err := meter.SyncFloat64().Histogram("baz")
+	if err != nil {
+		log.Fatal(err)
+	}
+histogram.Record(ctx, 23)
+```
+```
+gauge, err := meter.AsyncFloat64().Gauge("bar")
+	if err != nil {
+		log.Fatal(err)
+	}
+gauge.Observe(ctx,45.5)
+```
+
+
 
 ## Add custom logs
 
