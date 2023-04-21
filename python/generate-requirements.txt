@@ -106,7 +106,7 @@ slip==0.6.5
 slip.dbus==0.6.5
 sos==4.3
 SQLAlchemy==1.4.39
-sqlparse==0.4.2
+sqlparse==0.4.4
 ssh-import-id==5.10
 systemd-python==234
 tenacity==8.0.1
