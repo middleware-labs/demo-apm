@@ -5,7 +5,7 @@ import (
 	g "github.com/middleware-labs/golang-apm-gin/gin"
 	"gorm.io/gorm"
 	"gorm.io/driver/mysql"
-	mw_gorm "github.com/middleware-labs/go-agent-gorm/gorm"
+	mw_gorm "github.com/middleware-labs/opentelemetry-go-extra/otelgorm"
 	"github.com/middleware-labs/golang-apm/tracker"
 	"net/http"
 )
@@ -21,6 +21,7 @@ func main() {
 	config, _ := tracker.Track(
 		tracker.WithConfigTag("service", "Your service name"),
 		tracker.WithConfigTag("projectName", "Your project name"),
+		tracker.WithConfigTag("accessToken", "Your access token"),
 	)
 	r.Use(g.Middleware(config))
 	r.GET("/todo", func(c *gin.Context) {
