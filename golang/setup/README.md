@@ -25,7 +25,7 @@ import (
 ```
 ---------------------
 
-## Collect Golang specific metrics
+## Collect Golang traces
 
 Call track method in your main function
 ```
@@ -36,7 +36,16 @@ go track.Track(
 ```
 Running this method with go routine is important !
 
-This will start collecting the application Metrics
+This will start collecting the application traces
+
+## Collect Application Profiling Data
+
+If you also want to collect profiling data for your application,
+simply add this one config to your track.Track() call
+
+```
+track.WithConfigTag("accessToken", "{ACCOUNT_KEY}")
+```
 
 ## Add custom logs
 
