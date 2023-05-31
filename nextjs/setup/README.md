@@ -16,6 +16,10 @@ npx create-next-app@latest
 
 Now go to `my-app` directory and run the command below in your terminal to install Middleware's Next.js APM package:
 ```
+npm i @opentelemetry/api@">=1.3.0 <1.5.0"
+```
+
+```
 npm install @middleware.io/agent-apm-nextjs
 ```
 
