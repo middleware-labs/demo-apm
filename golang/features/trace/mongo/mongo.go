@@ -20,6 +20,7 @@ func main() {
 	config, _ := track.Track(
 		track.WithConfigTag("service", "Your service name"),
 		track.WithConfigTag("projectName", "Your project name"),
+		track.WithConfigTag("accessToken", "Your access token"),
 	)
 	r.Use(g.Middleware(config))
 	r.GET("/test", func(c *gin.Context) {
