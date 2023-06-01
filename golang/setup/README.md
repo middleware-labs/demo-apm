@@ -32,20 +32,12 @@ Call track method in your main function
 go track.Track(
     track.WithConfigTag("service", {APM-SERVICE-NAME}),
     track.WithConfigTag("projectName", {APM-PROJECT-NAME}),
+    track.WithConfigTag("accessToken", "{ACCOUNT_KEY}"),
 )
 ```
 Running this method with go routine is important !
 
-This will start collecting the application traces
-
-## Collect Application Profiling Data
-
-If you also want to collect profiling data for your application,
-simply add this one config to your track.Track() call
-
-```
-track.WithConfigTag("accessToken", "{ACCOUNT_KEY}")
-```
+This will start collecting the application traces & profiling data.
 
 ## Add custom logs
 
