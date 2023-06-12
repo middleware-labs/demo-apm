@@ -23,6 +23,7 @@ func main() {
 	config, _ := track.Track(
 		track.WithConfigTag("service", "your service name"),
 		track.WithConfigTag("projectName", "your project name"),
+		track.WithConfigTag("accessToken", "Your access token"),
 	)
 	// To enable tracing on template rendering, disable autorender
 	beego.BConfig.WebConfig.AutoRender = false

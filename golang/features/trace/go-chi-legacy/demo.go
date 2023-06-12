@@ -13,6 +13,7 @@ func main() {
 	track.Track(
 		track.WithConfigTag("service", "your service name"),
 		track.WithConfigTag("projectName", "your project name"),
+		track.WithConfigTag("accessToken", "Your access token"),
 	)
 	// define router
 	r := chi.NewRouter()

@@ -12,6 +12,7 @@ func main() {
 	config, _ := track.Track(
 		track.WithConfigTag("service", "beego-v2-keval-service"),
 		track.WithConfigTag("projectName", "beego-v2-keval-project"),
+		track.WithConfigTag("accessToken", "Your access token"),
 	)
 	web.Router("/v24", &MainController{})
 	mware := mwbeego.MiddleWare(config.ServiceName)

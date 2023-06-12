@@ -25,18 +25,19 @@ import (
 ```
 ---------------------
 
-## Collect Golang specific metrics
+## Collect Golang traces
 
 Call track method in your main function
 ```
 go track.Track(
     track.WithConfigTag("service", {APM-SERVICE-NAME}),
     track.WithConfigTag("projectName", {APM-PROJECT-NAME}),
+    track.WithConfigTag("accessToken", "{ACCOUNT_KEY}"),
 )
 ```
 Running this method with go routine is important !
 
-This will start collecting the application Metrics
+This will start collecting the application traces & profiling data.
 
 ## Add custom logs
 
@@ -68,6 +69,8 @@ You may need to add a framework specific middleware, to watch traces.
 |GORM 2             |   [GORM 2 Demo](https://github.com/middleware-labs/demo-apm/tree/master/golang/features/trace/gorm2)  |
 |go-pg/mongo        |   [Mongo Demo](https://github.com/middleware-labs/demo-apm/tree/master/golang/features/trace/mongo)  |
 |gRPC               |   [gRPC Demo](https://github.com/middleware-labs/demo-apm/tree/master/golang/features/trace/grpc)  |
+|go-redis/redis/v9  |   [go-redis/redis/v9 Demo](https://github.com/middleware-labs/demo-apm/tree/master/golang/features/trace/go-redis-v9)  |
+|go-redis/redis/v8  |   [go-redis/redis/v8 Demo](https://github.com/middleware-labs/demo-apm/tree/master/golang/features/trace/go-redis-v8)  |
 
 ---------------
 

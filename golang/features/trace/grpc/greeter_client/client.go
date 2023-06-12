@@ -25,6 +25,7 @@ func main() {
 	track.Track(
 		track.WithConfigTag("service", "Your service name"),
 		track.WithConfigTag("projectName", "Your project name"),
+		track.WithConfigTag("accessToken", "Your access token"),
 	)
 	flag.Parse()
 	// Set up a connection to the server.
