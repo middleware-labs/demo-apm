@@ -40,10 +40,10 @@ Create a custom `instrumentation.ts` file in your project root directory, and ad
 - If you are using [Vercel](https://vercel.com/) platform to deploy your projects, then use the code snippet below for serverless functions:
 ```
 // @ts-ignore
-import { track } from '@middleware.io/agent-apm-nextjs';
+import tracker from '@middleware.io/agent-apm-nextjs';
 
 export function register() {
-    track({
+    tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
         target: "vercel",
@@ -54,10 +54,10 @@ export function register() {
 - If you are using [Middleware's Host-agent](https://docs.middleware.io/docs/installation) on your machine then use code snippet below:
 ```
 // @ts-ignore
-import { track } from '@middleware.io/agent-apm-nextjs';
+import tracker from '@middleware.io/agent-apm-nextjs';
 
 export function register() {
-    track({
+    tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
     });
@@ -66,15 +66,36 @@ export function register() {
 - If you want to instrument your project without installing any host, then use the code snippet below:
 ```
 // @ts-ignore
-import { track } from '@middleware.io/agent-apm-nextjs';
+import tracker from '@middleware.io/agent-apm-nextjs';
 
 export function register() {
-    track({
+    tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
         accountKey: "{ACCOUNT_KEY}",
         target: "https://{ACCOUNT-UID}.middleware.io"
     });
+}
+```
+### Step 4: Enable Logging
+To enable logging in your project, add the following code in your file:
+```javascript
+// @ts-ignore
+import tracker from '@middleware.io/agent-apm-nextjs';
+
+export default async function handler(req, res) {
+    // ...
+    // Your existing code
+
+    tracker.info("Info Sample");
+    tracker.warn("Warn Sample", {
+        "tester": "Alex",
+    });
+    tracker.debug("Debug Sample");
+    tracker.error("Error Sample");
+
+    // ...
+    // Your existing code
 }
 ```
 ---------------------
