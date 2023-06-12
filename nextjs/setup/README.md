@@ -44,10 +44,10 @@ module.exports = nextConfig
 Create a custom `instrumentation.ts` file in your project root directory, and add the following code:
 ```
 // @ts-ignore
-import { track } from '@middleware.io/agent-apm-nextjs';
+import tracker from '@middleware.io/agent-apm-nextjs';
 
 export function register() {
-    track({
+    tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
         target: "vercel",
@@ -55,7 +55,29 @@ export function register() {
 }
 ```
 
-### Step 5: Integrate Middleware on Vercel 
+### Step 5: Enable Logging
+To enable logging in your project, add the following code in your file:
+```javascript
+// @ts-ignore
+import tracker from '@middleware.io/agent-apm-nextjs';
+
+export default async function handler(req, res) {
+    // ...
+    // Your existing code
+
+    tracker.info("Info Sample");
+    tracker.warn("Warn Sample", {
+        "tester": "Alex",
+    });
+    tracker.debug("Debug Sample");
+    tracker.error("Error Sample");
+
+    // ...
+    // Your existing code
+}
+```
+
+### Step 6: Integrate Middleware on Vercel 
  Now you can deploy your project on Vercel. Afterward, you need to integrate the [Middleware](https://vercel.com/integrations/middleware) from the marketplace. You can find more details [here](https://docs.middleware.io/docs/apm-configuration/next-js/vercel-integration).
 
 ***Unlock the power of seamless integration between Middleware and Vercel, and elevate your Next.js projects with advanced APM capabilities.*** 🚀
