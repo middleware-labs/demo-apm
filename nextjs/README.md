@@ -46,6 +46,7 @@ export function register() {
     tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
+        accountKey: "{ACCOUNT_KEY}",
         target: "vercel",
     });
 }
@@ -60,6 +61,7 @@ export function register() {
     tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
+        accountKey: "{ACCOUNT_KEY}",
     });
 }
 ```
