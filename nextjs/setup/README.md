@@ -55,6 +55,7 @@ export function register() {
     });
 }
 ```
+*Note: You can find your &lt;ACCOUNT-KEY&gt; on the Installation screen for [NextJs / Vercel](https://app.middleware.io/installation#apm/nextjs).*
 
 ### Step 5: Enable Logging
 To enable logging in your project, add the following code in your file:
