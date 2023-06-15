@@ -2,6 +2,8 @@
 
 ## Prerequisites
 
+Make sure you have installed the latest version of Next.js or a version greater than 13.2.0, as Vercel introduced their experimental feature in that release.
+
 Before proceeding with the Next.js APM setup, make sure you have the `@opentelemetry/api` package installed. If it's not already installed, run the following command:
 
 ```
