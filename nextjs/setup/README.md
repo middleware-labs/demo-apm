@@ -7,6 +7,8 @@
 
 ### Step 1: Set up a sample project
 
+Make sure you have installed the latest version of Next.js or a version greater than 13.2.0, as Vercel introduced their experimental feature in that release.
+
 Run the command below in your terminal to install Next.js sample project, i.e. `my-app`:
 ```
 npx create-next-app@latest
