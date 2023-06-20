@@ -76,7 +76,7 @@ export default function personHandler(...) {
 
     } else {
 
-        racker.error(`Requested person with id ${id} not found.`, { id: id });
+        tracker.error(`Requested person with id ${id} not found.`, { id: id });
         return res.status(404).json({ message: `User not found.` })
 
     }
