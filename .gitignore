@@ -4,3 +4,6 @@ php/vendor
 php/composer.lock
 .idea
 .vscode
+
+# Spring demo
+**/.gitignore
