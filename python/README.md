@@ -1,33 +1,51 @@
 # Python APM Guide
+You can follow our [documentation](https://docs.middleware.io/docs/apm-configuration/python/python-apm-setup) to setup APM for your Python application.
 
-## Prequisites
-
-If you are expecting python demo data on your dashboard, make sure you have our Host Agent installed.
+## Prerequisites
+Ensure that you have the Middleware Host Agent installed to view Python demo data on your dashboard.
 
 ---------------------
 
-## Log Collection
+## Installing the Package
+Run the following commands in your terminal:
+### Step 1: Install Middleware APM package
 ```
-export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
-python3 features/log.py
+pip install middleware-apm
+```
+Step 2: Auto-install Required Packages
+```
+middleware-bootstrap -a install
+```
+The first command installs the Middleware APM package, and the second command automatically installs the instrumentation libraries for the packages in your active site-packages folder, if applicable.
+
+## Your Sample Code
+By using all the MW's APM functionalities like: Distributed-tracing, Logs, Metrics and Profiling, your code will look like this:
+```python
+import logging
+
+from mw_tracker import MwTracker
+tracker=MwTracker(
+    access_token="{YOUR-ACCESS_TOKEN}"
+)
+
+tracker.collect_metrics()
+tracker.collect_logs()
+tracker.collect_profiling()
+
+logging.info("Hello World!", extra={'key': 'value'})
 ```
 
-## Distributed Tracing
+## Run Your Application
+To run your application, use the following command:
 ```
 export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
-middleware-instrument --resource_attributes=project.name={APM-PROJECT-NAME} --metrics_exporter none --exporter_otlp_endpoint http://localhost:9319  --traces_exporter otlp --service_name {APM-SERVICE-NAME} python3 trace.py
+middleware-instrument \
+--exporter_otlp_endpoint http://localhost:9319 \
+--resource_attributes=project.name={APM-PROJECT-NAME},mw.app.lang=python,runtime.metrics.python=true \
+--service_name {APM-SERVICE-NAME} \
+python3 app.py
 ```
-
-## Python Specific Metrics
-```
-Coming soon ...
-```
-
-## Complete Example
-```
-export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
-middleware-instrument --resource_attributes=project.name={APM-PROJECT-NAME} --metrics_exporter none --exporter_otlp_endpoint http://localhost:9319  --traces_exporter otlp --service_name {APM-SERVICE-NAME} python3 app.py
-```
+#### Note: You need to replace <strong>\{APM-PROJECT-NAME\}</strong> and <strong>\{APM-SERVICE-NAME\}</strong> with your project name and service name respectively.
 
 ---------------------------------
 

@@ -11,13 +11,13 @@ You can follow our [documentation](https://docs.middleware.io/docs/apm-configura
 ## Getting Started
 ### Step 1: Install MW's APM Package
 Run the following command in your terminal:
-```python
+```
 pip install middleware-apm
 ```
 
 ### Step 2: Auto-install Required Packages
 The `middleware-bootstrap -a install` command reads through the list of packages installed in your active site-packages folder, and installs the corresponding instrumentation libraries for these packages, if applicable.
-```python
+```
 middleware-bootstrap -a install
 ```
 
@@ -72,7 +72,7 @@ logging.info("Hello World!", extra={'key': 'value'})
 
 ## Run Your Application
 To run your application, you need to execute the following command:
-```python
+```
 middleware-instrument \
 --exporter_otlp_endpoint http://localhost:9319 \
 --resource_attributes=project.name={APM-PROJECT-NAME},mw.app.lang=python,runtime.metrics.python=true \
@@ -104,7 +104,7 @@ Consider adding this directory to PATH or, if you prefer to suppress this warnin
 
 You can add the binary to your path
 In linux, you can add this with
-```python
+```
 export PATH=$PATH:/home/.../.local/bin
 ```
 
