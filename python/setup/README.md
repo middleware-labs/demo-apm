@@ -1,4 +1,5 @@
 # Python APM Setup
+You can follow our [documentation](https://docs.middleware.io/docs/apm-configuration/python/python-apm-setup) to setup APM for your Python application.
 
 ## Prerequisites
 
@@ -6,93 +7,111 @@
 * You can refer [this demo project](https://github.com/middleware-labs/demo-apm/tree/master/python) to refer use cases
   of APM.
 
---------------------
 
-## Step 1 : Install Python package
-
-Run this in your terminal
-
-```
+## Getting Started
+### Step 1: Install MW's APM Package
+Run the following command in your terminal:
+```python
 pip install middleware-apm
 ```
 
-## Step 2 : Import Tracker
-
-Add these line at the very start of your project
-
-```
-from apmpythonpackage import apmpythonclass
-tracker=apmpythonclass()
-tracker.mw_tracer({APM-PROJECT-NAME}, {APM-SERVICE-NAME})
-```
-
----------------------
-
-## Distributed Tracing
-
-The middleware-bootstrap -a install command reads through the list of packages installed in your active site-packages folder, and installs the corresponding instrumentation libraries for these packages, if applicable.
-```
+### Step 2: Auto-install Required Packages
+The `middleware-bootstrap -a install` command reads through the list of packages installed in your active site-packages folder, and installs the corresponding instrumentation libraries for these packages, if applicable.
+```python
 middleware-bootstrap -a install
 ```
 
-Run the below command for Distributed Tracing:
+### Step 3: Import the Tracker
+Add the following lines at the very start of your project:
+```python
+from mw_tracker import MwTracker
+tracker=MwTracker(
+    access_token="{YOUR-ACCESS_TOKEN}"
+)
 ```
-middleware-instrument --resource_attributes=project.name={APM-PROJECT-NAME} --metrics_exporter none --exporter_otlp_endpoint http://localhost:9319  --traces_exporter otlp --service_name {APM-SERVICE-NAME} python3 <your-file-name>.py
+
+## Enable MW's APM functionalities
+
+### 1. Enable Distributed Tracing
+Distributed-tracing is a default functionality of MW's APM. This will be auto-enabled when you execute the command mentioned in **Run Your Application** section.
+
+### 2. Enable Metrics
+You can enable metrics by writing the following line just after the tracker initialization.
+```python
+tracker.collect_metrics()
 ```
 
-## Note for APM inside Kubernetes
-
-If you are using APM in a Kubernetes cluster make sure to follow these 2 steps:
-
-### Step 1 : Find your Middleware Service namespace
-For older setup, your "mw-service" can be inside "mw-agent-ns-{FIRST-5-LETTERS-OF-API-KEY}" namespace
-
-For newer setup, we simplified the namespace name to "mw-agent-ns"
-
-### Step 2 : Set this ENV variable in your application deployment YAML
+### 3. Enable Logs
+Similar to metrics, you can enable logs by writing the following line.
+```python
+tracker.collect_logs()
 ```
+
+### 4. Enable Profiling
+For the Profiling feature, you need to write the following line.
+```python
+tracker.collect_profiling()
+```
+
+## Your Code will look like this
+After adding all the above steps, your code will look like this:
+```python
+import logging
+
+from mw_tracker import MwTracker
+tracker=MwTracker(
+    access_token="{YOUR-ACCESS_TOKEN}"
+)
+
+tracker.collect_metrics()
+tracker.collect_logs()
+tracker.collect_profiling()
+
+logging.info("Hello World!", extra={'key': 'value'})
+```
+
+## Run Your Application
+To run your application, you need to execute the following command:
+```python
+middleware-instrument \
+--exporter_otlp_endpoint http://localhost:9319 \
+--resource_attributes=project.name={APM-PROJECT-NAME},mw.app.lang=python,runtime.metrics.python=true \
+--service_name {APM-SERVICE-NAME} \
+python3 app.py
+```
+#### Note: You need to replace <strong>\{APM-PROJECT-NAME\}</strong> and <strong>\{APM-SERVICE-NAME\}</strong> with your project name and service name respectively.
+
+## For APM inside Kubernetes
+If you are using APM in a Kubernetes cluster make sure to follow these two steps:
+
+### Step 1: Find your Middleware Service namespace
+For older setup, your "mw-service" can be inside `mw-agent-ns-{FIRST-5-LETTERS-OF-API-KEY}` namespace
+For newer setup, we simplified the namespace name to `mw-agent-ns`
+
+### Step 2: Set this ENV variable in your application deployment YAML
+```python
 MW_AGENT_SERVICE=mw-service.NAMESPACE.svc.cluster.local
 ```
-Please replace "NAMESPACE" with the correct value that you found from Step 1.
+#### Note: Please replace "NAMESPACE" with the correct value that you found from Step 1.
 
-## Note :
-
-If you get a warning similar to the one given below :
+## Troubleshoot:
+If you receive a warning similar to the following:
 ```
 WARNING: The scripts middleware-bootstrap and middleware-instrument are installed in '/home/.../.local/bin' which is not on PATH.
 
 Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location
 ```
 
-You can add the binary to your path 
-
+You can add the binary to your path
 In linux, you can add this with
-```
+```python
 export PATH=$PATH:/home/.../.local/bin
 ```
 
-## Add custom logs
-
-```
-tracker.error('python error log sample')
-tracker.debug('ipython debug log sample')
-tracker.warn('python warning log sample')
-tracker.info('python info log sample')
-```
-
-## Python Logging with Middleware
-
-```
-handler = tracker.mw_handler()
-logging.getLogger().addHandler(handler)
-logging.error("error log sample")
-```
-
 ## Error Handling :
+If you want to record exception in traces then, you can use `tracker.record_error(e)` method.
 
-If you want to record exception in traces then you can use tracker.record_error(e) method.
-
-```
+```python
 randomList = ['a', 0, 2]
 
 for entry in randomList:
@@ -101,4 +120,4 @@ for entry in randomList:
          break
     except Exception as e:
          tracker.record_error(e)
- 
+```
