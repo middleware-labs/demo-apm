@@ -48,7 +48,7 @@ export function register() {
     tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
-        accountKey: "{ACCOUNT_KEY}",
+        accessToken: "<ACCESS-TOKEN>",
         target: "vercel",
     });
 }
@@ -63,7 +63,7 @@ export function register() {
     tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
-        accountKey: "{ACCOUNT_KEY}",
+        accessToken: "<ACCESS-TOKEN>",
     });
 }
 ```
@@ -76,7 +76,7 @@ export function register() {
     tracker.track({
         projectName: "<PROJECT-NAME>",
         serviceName: "<SERVICE-NAME>",
-        accountKey: "{ACCOUNT_KEY}",
+        accessToken: "<ACCESS-TOKEN>",
         target: "https://{ACCOUNT-UID}.middleware.io"
     });
 }

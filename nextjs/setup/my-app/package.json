@@ -6,7 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@middleware.io/agent-apm-nextjs": "^1.0.38",
+    "@middleware.io/agent-apm-nextjs": "^1.1.0",
     "@opentelemetry/api": ">=1.3.0 <1.5.0",
     "next": "latest",
     "react": "^18.2.0",
