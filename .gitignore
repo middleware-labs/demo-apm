@@ -4,3 +4,6 @@ php/vendor
 php/composer.lock
 .idea
 .vscode
+
+# Java Spring Demo
+**/target
