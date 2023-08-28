@@ -1,10 +1,11 @@
-from apmpythonpackage import apmpythonclass
-tracker=apmpythonclass()
-tracker.mw_tracer("custom-project", "custom-service")
+import logging
+from mw_tracker import MwTracker
 
-tracker.error('python error log sample')
-tracker.debug('python debug log sample')
-tracker.warn('python warning log sample')
-tracker.info('python info log sample')
+tracker=MwTracker(
+    access_token="yzofakgtpcelqsexhzhegmticbrciftarhzd"
+)
+tracker.collect_logs()
+
+logging.info("Hello World!", extra={'Key': 'Value'})
 
 

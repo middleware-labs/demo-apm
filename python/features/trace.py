@@ -1,10 +1,9 @@
-# You will need request from flask to monitor your traces
 from flask import Flask, request
+from mw_tracker import MwTracker
 
-# Add these 3 lines as it is
-from apmpythonpackage import apmpythonclass
-tracker=apmpythonclass()
-tracker.mw_tracer("custom-project", "custom-service")
+tracker=MwTracker(
+    access_token="yzofakgtpcelqsexhzhegmticbrciftarhzd"
+)
 
 app = Flask(__name__)
 
