@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "lib": [
+      "ES2015",
+      "dom",
+      "es2015.iterable"
+    ],
+    "types": [
+      "@cloudflare/workers-types"
+    ]
+  }
+}

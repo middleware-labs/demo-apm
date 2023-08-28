@@ -12,6 +12,6 @@
     "deploy": "wrangler publish"
   },
   "dependencies": {
-    "@middleware.io/agent-apm-worker": "0.0.6"
+    "@middleware.io/agent-apm-worker": "^0.0.23"
   }
 }

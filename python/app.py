@@ -2,24 +2,21 @@
 from flask import Flask, request
 import logging
 # Add these 3 lines as it is
-from apmpythonpackage import apmpythonclass
-tracker=apmpythonclass()
-tracker.mw_tracer("new-project", "new-service")
+from mw_tracker import MwTracker
+tracker=MwTracker(
+    access_token="yzofakgtpcelqsexhzhegmticbrciftarhzd"
+)
+tracker.collect_metrics()
+tracker.collect_logs()
+tracker.collect_profiling()
 
-# for logger
-tracker.error('python error log sample')
-tracker.debug('ipython debug log sample')
-tracker.warn('python warning log sample')
-tracker.info('python info log sample')
-
+logging.info("Application initiated successfully.", extra={'Tester': 'Alex'})
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    handler = tracker.mw_handler()
-    logging.getLogger().addHandler(handler)
-    logging.error("error log sample")
+    logging.error("error log sample", extra={'CalledFunc': 'hello_world'})
     logging.warning("warning log sample")
     logging.info("info log sample")
     return 'Hello World!'
@@ -39,4 +36,4 @@ def generate_exception():
     return 'Exception Generated!'
 
 if __name__ == '__main__':
-    app.run('0.0.0.0')
+    app.run('0.0.0.0', 5000)
