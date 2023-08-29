@@ -13,3 +13,15 @@ php/composer.lock
 **/bin
 **/obj
 **/node_modules
+
+# ruby demo
+ruby/*/db/*.sqlite3
+
+ruby/**/cache/*
+ruby/*/storage/*
+!/ruby/**/storage/.keep
+ruby/**/public/uploads
+ruby/**/log/*
+ruby/**/tmp/*
+!ruby/**/log/.keep
+!ruby/**/tmp/.keep

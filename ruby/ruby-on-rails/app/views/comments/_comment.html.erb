@@ -1,0 +1,19 @@
+<table>
+  <% unless comment.archived? %>
+    <tr>
+      <td width="500">
+        <p>
+          <strong><%= comment.commenter %></strong> : <%= comment.body %>
+        </p>
+      </td>
+      <td>
+        <p color="red">
+          <%= link_to "Delete", [comment.article, comment], data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } %>
+        </p>
+      </td>
+    </tr>
+  <% end %>
+</table>
