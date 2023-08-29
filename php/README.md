@@ -2,9 +2,9 @@
 
 [![packagist](https://img.shields.io/badge/dev--master-%23f28d1a?label=packagist)](https://packagist.org/packages/middleware/agent-apm-php)
 
-| Traces | Metrics | Profiling | Logs (App/Custom) |
-|--------|---------|-----------|-------------------|
-|   Yes  | No      | No        | No/Yes            |
+|  Traces  |  Metrics  |  Profiling  |  Logs (App/Custom)  |
+|:--------:|:---------:|:-----------:|:-------------------:|
+|   Yes    |    No     |     No      |       No/Yes        |
 
 ## Prerequisites
 

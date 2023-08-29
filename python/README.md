@@ -4,9 +4,9 @@ You can follow our [documentation](https://docs.middleware.io/docs/apm-configura
 [![PyPI - Version](https://img.shields.io/pypi/v/middleware-apm)](https://pypi.org/project/middleware-apm/)
 
 
-| Traces | Metrics | Profiling | Logs (App/Custom) |
-|--------|---------|-----------|-------------------|
-|   Yes  |  Yes    |    Yes    | Yes/Yes           |
+|  Traces  |  Metrics  |  Profiling  |  Logs (App/Custom)  |
+|:--------:|:---------:|:-----------:|:-------------------:|
+|   Yes    |    Yes    |     Yes     |       Yes/Yes       |
 
 ## Prerequisites
 Ensure that you have the Middleware Host Agent installed to view Python demo data on your dashboard.

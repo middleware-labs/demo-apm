@@ -2,9 +2,9 @@
 
 [![npm](https://img.shields.io/npm/v/%40middleware.io%2Fagent-apm-nextjs)](https://www.npmjs.com/package/@middleware.io/agent-apm-nextjs)
 
-| Traces | Metrics | Profiling | Logs (App/Custom) |
-|--------|---------|-----------|-------------------|
-|   Yes  | No      |    Yes    | No/Yes            |
+|  Traces  |  Metrics  |  Profiling  |  Logs (App/Custom)  |
+|:--------:|:---------:|:-----------:|:-------------------:|
+|   Yes    |    No     |     Yes     |       No/Yes        |
 
 ## Prerequisites
 

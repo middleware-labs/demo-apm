@@ -4,9 +4,9 @@
 [![npm](https://img.shields.io/npm/v/%40middleware.io%2Fnode-apm)](https://www.npmjs.com/package/@middleware.io/node-apm)
 
 
-| Traces | Metrics | Profiling | Logs (App/Custom) |
-|--------|---------|-----------|-------------------|
-|   Yes  | No      |    Yes    | No/Yes            |
+|  Traces  |  Metrics  |  Profiling  |  Logs (App/Custom)  |
+|:--------:|:---------:|:-----------:|:-------------------:|
+|   Yes    |    No     |     Yes     |       No/Yes        |
 
 # On a Linux Machine
 

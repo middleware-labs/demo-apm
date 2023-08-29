@@ -1,8 +1,8 @@
 # Golang APM Demo
 
-| Traces | Metrics | Profiling | Logs (App/Custom) |
-|--------|---------|-----------|-------------------|
-|   Yes  | Yes     |    Yes    | No/Yes            |
+|  Traces  |  Metrics  |  Profiling  |  Logs (App/Custom)  |
+|:--------:|:---------:|:-----------:|:-------------------:|
+|   Yes    |    Yes    |     Yes     |       No/Yes        |
 
 ## Prequisites
 

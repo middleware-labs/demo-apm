@@ -2,6 +2,6 @@
 
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/middleware-labs/dotnet-plugin)
 
-| Traces | Metrics | Profiling | Logs (App/Custom) |
-|--------|---------|-----------|-------------------|
-|   Yes  |  Yes    |    Yes    | No/Yes            |
+|  Traces  |  Metrics  |  Profiling  |  Logs (App/Custom)  |
+|:--------:|:---------:|:-----------:|:-------------------:|
+|   Yes    |    Yes    |     Yes     |       No/Yes        |
