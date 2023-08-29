@@ -5,6 +5,10 @@ php/composer.lock
 .idea
 .vscode
 
+
+# Java Spring Demo
+**/target
+
 # dotnet demo
 **/bin
 **/obj
