@@ -1,5 +1,11 @@
 # PHP APM Setup
 
+[![packagist](https://img.shields.io/badge/dev--master-%23f28d1a?label=packagist)](https://packagist.org/packages/middleware/agent-apm-php)
+
+| Traces | Metrics | Profiling | Logs (App/Custom) |
+|--------|---------|-----------|-------------------|
+|   Yes  | No      | No        | No/Yes            |
+
 ## Prerequisites
 
 * To monitor APM data on dashboard, Middleware Host agent needs to be installed, You can refer [this demo project](https://github.com/middleware-labs/demo-apm/tree/master/php) to refer use cases of APM.

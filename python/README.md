@@ -1,6 +1,13 @@
 # Python APM Guide
 You can follow our [documentation](https://docs.middleware.io/docs/apm-configuration/python/python-apm-setup) to setup APM for your Python application.
 
+[![PyPI - Version](https://img.shields.io/pypi/v/middleware-apm)](https://pypi.org/project/middleware-apm/)
+
+
+| Traces | Metrics | Profiling | Logs (App/Custom) |
+|--------|---------|-----------|-------------------|
+|   Yes  |  Yes    |    Yes    | Yes/Yes           |
+
 ## Prerequisites
 Ensure that you have the Middleware Host Agent installed to view Python demo data on your dashboard.
 

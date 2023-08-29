@@ -1,5 +1,9 @@
 # Golang APM Demo
 
+| Traces | Metrics | Profiling | Logs (App/Custom) |
+|--------|---------|-----------|-------------------|
+|   Yes  | Yes     |    Yes    | No/Yes            |
+
 ## Prequisites
 
 If you are expecting golang demo data on your dashboard, make sure you have our Host Agent installed.

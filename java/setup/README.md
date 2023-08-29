@@ -1,5 +1,9 @@
 # Java APM Setup
 
+| Traces | Metrics | Profiling | Logs (App/Custom) |
+|--------|---------|-----------|-------------------|
+|   Yes  | Yes     |    Yes    | Yes/Yes           |
+
 ## Prerequisites
 
 * To monitor APM data on dashboard, Middleware Host agent needs to be installed.

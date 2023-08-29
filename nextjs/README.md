@@ -1,5 +1,11 @@
 # Next.js APM Setup
 
+[![npm](https://img.shields.io/npm/v/%40middleware.io%2Fagent-apm-nextjs)](https://www.npmjs.com/package/@middleware.io/agent-apm-nextjs)
+
+| Traces | Metrics | Profiling | Logs (App/Custom) |
+|--------|---------|-----------|-------------------|
+|   Yes  | No      |    Yes    | No/Yes            |
+
 ## Prerequisites
 
 Make sure you have installed the latest version of Next.js or a version greater than 13.4+, as Vercel introduced their experimental feature in that release.
