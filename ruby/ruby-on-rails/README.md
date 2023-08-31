@@ -5,20 +5,40 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Check Ruby version >= 3.0.2
+```bash
+ruby --version
+```
 
-* System dependencies
+* Prerequisites
+    - To monitor APM data on dashboard, [Middleware Host agent](https://app.middleware.io/installation#infrastructures/ubuntu) needs to be installed.
 
-* Configuration
+* Dependencies 
+    ```ruby
+    gem 'opentelemetry-sdk'
+    gem 'opentelemetry-exporter-otlp'
+    gem 'opentelemetry-instrumentation-all'
+    gem 'pyroscope'
+    gem 'middleware_apm', '~> 1.0.0'
+    ```
 
-* Database creation
+* Add this code at the initialization of your application
+    ```ruby
+    require 'middleware/ruby_gem'
+    Middleware::RubyGem.init  
+    ```
+* Start Rails Server
+    ```bash
+    bin/rails server
+    ```
 
-* Database initialization
+Other Commands:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database migration
+    ```bash
+    bin/rails db:migrate
+    ```
+* List of available tasks
+    ```bash
+    bin/rails --tasks
+    ```
