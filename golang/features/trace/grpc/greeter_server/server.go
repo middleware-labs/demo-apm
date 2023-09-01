@@ -31,6 +31,7 @@ func main() {
 	track.Track(
 		track.WithConfigTag("service", "Your service name"),
 		track.WithConfigTag("projectName", "Your project name"),
+		track.WithConfigTag("accessToken", "your access token"),
 	)
 	flag.Parse()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))

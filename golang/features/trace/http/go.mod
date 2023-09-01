@@ -1,6 +1,6 @@
 module http
 
-go 1.21.0
+go 1.18
 
 require (
 	github.com/middleware-labs/golang-apm v1.0.998

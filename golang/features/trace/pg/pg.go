@@ -14,6 +14,7 @@ func main() {
 	config, _ := track.Track(
 		track.WithConfigTag("service", "Your service name"),
 		track.WithConfigTag("projectName", "Your project name"),
+		track.WithConfigTag("accessToken", "your access token"),
 	)
 	r.Use(g.Middleware(config))
 

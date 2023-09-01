@@ -28,6 +28,7 @@ func main() {
 	config, _ := track.Track(
 		track.WithConfigTag("service", "your service name"),
 		track.WithConfigTag("projectName", "your project name"),
+		track.WithConfigTag("accessToken", "your access token"),
 	)
 	mware := mwbeego.MiddleWare(config.ServiceName)
 	web.RunWithMiddleWares(":8080", mware)

@@ -32,6 +32,7 @@ func main()  {
 	config, _ := tracker.Track(
 		tracker.WithConfigTag("service", "Your service name"),
 		tracker.WithConfigTag("projectName", "Your project name"),
+		tracker.WithConfigTag("accessToken", "your access token"),
 	)
 	r.Use(g.Middleware(config))
 	db, err := gormOpen("mysql", "root:@tcp(127.0.0.1:3306)/next","next")

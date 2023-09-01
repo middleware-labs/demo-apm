@@ -12,6 +12,7 @@ func main() {
 	config, _ := track.Track(
 		track.WithConfigTag("service", "your service name"),
 		track.WithConfigTag("projectName", "your project name"),
+		track.WithConfigTag("accessToken", "your access token"),
 	)
 	r.Use(g.Middleware(config))
 	r.GET("/books", FindBooks)
