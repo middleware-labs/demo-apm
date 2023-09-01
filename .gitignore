@@ -16,7 +16,7 @@ php/composer.lock
 
 # ruby demo
 ruby/*/db/*.sqlite3
-
+!ruby/*/bin
 ruby/**/cache/*
 ruby/*/storage/*
 !/ruby/**/storage/.keep
