@@ -1,5 +1,9 @@
 const tracker = require('@middleware.io/node-apm');
-tracker.track();
+tracker.track({
+    projectName: "nodejs-webserver",
+    serviceName: "nodejs-webserver", 
+    accessToken: "nacwojkbrtcqzhuwblmnxcazeyyzlcrywdoz", 
+  });
 
 tracker.info('Info sample');
 tracker.warn('Warning sample');
@@ -15,6 +19,7 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
+    tracker.info('req received');
     res.setHeader('Content-Type', 'text/plain');
     res.end('Hello World');
   });
