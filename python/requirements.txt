@@ -1,2 +1,2 @@
-middleware-apm==0.2.1
+middleware-apm
 flask==2.2.3

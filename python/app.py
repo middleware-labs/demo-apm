@@ -1,10 +1,11 @@
 # You will need request from flask to monitor your traces
 from flask import Flask, request
 import logging
+import os
 # Add these 3 lines as it is
 from mw_tracker import MwTracker
 tracker=MwTracker(
-    access_token="yzofakgtpcelqsexhzhegmticbrciftarhzd"
+    access_token="nacwojkbrtcqzhuwblmnxcazeyyzlcrywdoz"
 )
 tracker.collect_metrics()
 tracker.collect_logs()
@@ -36,4 +37,5 @@ def generate_exception():
     return 'Exception Generated!'
 
 if __name__ == '__main__':
+    mw_agent = os.getenv('MW_AGENT_SERVICE') 
     app.run('0.0.0.0', 5000)
