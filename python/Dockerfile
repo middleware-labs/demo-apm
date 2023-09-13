@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 # Create a virtual environment
-RUN python -m venv venv
+#RUN python -m venv venv
 
 # Activate the virtual environment
 RUN export PATH="$PATH:/app/venv/bin"

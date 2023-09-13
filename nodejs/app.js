@@ -10,7 +10,7 @@ tracker.warn('Warning sample');
 tracker.debug('Debugging Sample');
 tracker.error('Error Sample');
 
-tracker.error(new Error('Error sample with stack trace'));
+//tracker.error(new Error('Error sample with stack trace'));
 
 const http = require('http');
 
@@ -21,10 +21,11 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     tracker.info('req received');
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World');
+    res.end('Hello World from nodejs');
   });
   
 server.listen(port, hostname, () => {
+    console.log(process.env.MW_AGENT_SERVICE);
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 

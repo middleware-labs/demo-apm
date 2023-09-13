@@ -20,7 +20,8 @@ def hello_world():
     logging.error("error log sample", extra={'CalledFunc': 'hello_world'})
     logging.warning("warning log sample")
     logging.info("info log sample")
-    return 'Hello World!'
+    print("hello_world invoked")
+    return 'Hello World! from python'
 
 @app.route('/exception')
 def generate_exception():
@@ -37,5 +38,6 @@ def generate_exception():
     return 'Exception Generated!'
 
 if __name__ == '__main__':
-    mw_agent = os.getenv('MW_AGENT_SERVICE') 
+    mw_agent = os.getenv('MW_AGENT_SERVICE')
+    print("in code agent:"+mw_agent) 
     app.run('0.0.0.0', 5000)
