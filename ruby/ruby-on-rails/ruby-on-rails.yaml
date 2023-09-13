@@ -10,7 +10,7 @@ metadata:
   namespace: default
 spec:
   ports:
-    - name: "3000"
+    - name: "Application"
       port: 3000
       targetPort: 3000
   selector:
@@ -56,7 +56,7 @@ spec:
               value: 'project.name: "project-name"'
             - name: OTEL_SERVICE_NAME
               value: service-name
-          image: mwparth/ruby-on-rails:latest
+          image: your-image-name:tag
           name: ruby-on-rails
           ports:
             - containerPort: 3000

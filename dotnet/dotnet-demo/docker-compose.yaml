@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  dotnet-app:
+    container_name: dotnet-app
+    build:
+      context: ./Mw-WebApplication/
+    environment:
+      - MW_AGENT_SERVICE=172.17.0.1
+      - MW_API_KEY=your-api-key
+      - OTEL_SERVICE_NAME=dotnet-service
+      - OTEL_RESOURCE_ATTRIBUTES=project.name=dotnet-project
+    ports:
+      - "5000:5000" 
+    restart: on-failure

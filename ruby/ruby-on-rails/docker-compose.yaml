@@ -1,13 +1,15 @@
 version: '3.8'
 services:
   ruby-on-rails:
-    image: mwparth/ruby-on-rails:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: ruby-on-rails
     working_dir: /app
     environment:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://172.17.0.1:9320
-      OTEL_SERVICE_NAME: "service-name"
-      OTEL_RESOURCE_ATTRIBUTES: 'project.name: "project-name"'
-      MW_API_KEY: "your-api-key"
-    command: ["bin/rails", "server"]
-    network_mode: host
+      OTEL_SERVICE_NAME: service-name
+      OTEL_RESOURCE_ATTRIBUTES: 'project.name="project-name"'
+      MW_API_KEY: your-api-key
+    ports:
+      - "3000:3000" 

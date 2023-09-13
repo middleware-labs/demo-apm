@@ -23,15 +23,9 @@ services:
       MYSQL_URL: jdbc:mysql://mysqldb:3306/employeedb
       MW_API_KEY: your-api-key
       MW_AGENT_SERVICE: 172.17.0.1
-    # build:
-    #   context: ./
-    #   dockerfile: Dockerfile
-    image: mwparth/java-springboot-rest:latest
-    command: >
-      java -javaagent:middleware-javaagent-1.3.0.jar 
-      -Dotel.service.name="spring-rest-service-1" 
-      -Dotel.resource.attributes=project.name="spring-rest-project-1" 
-      -jar target/springboot-restful-webservices-0.0.1-SNAPSHOT.jar
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:

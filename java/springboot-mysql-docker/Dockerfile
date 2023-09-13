@@ -16,3 +16,5 @@ RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8080
+
+CMD ["java", "-javaagent:middleware-javaagent-1.3.0.jar", "-Dotel.service.name=spring-rest-service", "-Dotel.resource.attributes=project.name=spring-rest-project", "-jar", "target/springboot-restful-webservices-0.0.1-SNAPSHOT.jar"]
