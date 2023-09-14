@@ -13,13 +13,13 @@
 
 * If you are expecting nodejs demo data on your dashboard, make sure you have our Host Agent installed.
 
-# Install Middleware Node.js package
+## Install Middleware Node.js package
 
 ```
 npm install @middleware.io/node-apm --save
 ```
 
-# Add this snippet in your code
+## Add this snippet in your code
 
 ```
 const tracker = require('@middleware.io/node-apm');
@@ -30,7 +30,7 @@ tracker.track({
   });
 ```
 
-# Custom Logs
+## Custom Logs
 
 To ingest custom logs into Middleware, you can use library functions as given below.
 
