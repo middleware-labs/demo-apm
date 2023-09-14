@@ -6,7 +6,7 @@ You can follow our [documentation](https://docs.middleware.io/docs/apm-configura
 * To monitor APM data on dashboard, Middleware Host agent needs to be installed.
 * You can refer [this demo project](https://github.com/middleware-labs/demo-apm/tree/master/python) to refer use cases
   of APM.
-
+* This demo requires the Flask library, and you can install it from requirements.txt using `pip install -r requirements.txt` or by running `pip install flask`.
 
 ## Getting Started
 ### Step 1: Install MW's APM Package
