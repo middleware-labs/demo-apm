@@ -1,5 +1,7 @@
 # Golang APM Demo
 
+[![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/middleware-labs/golang-apm)](https://github.com/middleware-labs/golang-apm)
+
 |  Traces  |  Metrics  |  Profiling  |  Logs (App/Custom)  |
 |:--------:|:---------:|:-----------:|:-------------------:|
 |   Yes    |    Yes    |     Yes     |       No/Yes        |
