@@ -8,11 +8,59 @@
 |:--------:|:---------:|:-----------:|:-------------------:|
 |   Yes    |    No     |     Yes     |       No/Yes        |
 
-# On a Linux Machine
 
 ## Prequisites
 
 * If you are expecting nodejs demo data on your dashboard, make sure you have our Host Agent installed.
+
+## Install Middleware Node.js package
+
+```
+npm install @middleware.io/node-apm --save
+```
+
+## Add this snippet in your code
+
+```
+const tracker = require('@middleware.io/node-apm');
+tracker.track({
+    projectName: "Your project name",
+    serviceName: "Your service name", 
+    accessToken: "Your api key", 
+  });
+```
+
+## Custom Logs
+
+To ingest custom logs into Middleware, you can use library functions as given below.
+
+```
+tracker.info('Info sample');
+tracker.warn('Warning sample');
+tracker.debug('Debugging Sample');
+tracker.error('Error Sample');
+```
+
+If you want to add stack trace along with the error log, you can follow the snippet as given below.
+
+```
+tracker.error(new Error('Error sample with stack trace'));
+```
+
+## Error Handling :
+
+If you want to record exception in traces then you can use track.errorRecord(error) method.
+
+```
+ app.get('/error', function (req, res) {
+    try{
+        throw new Error('oh error!');
+    }catch (e) {
+       track.errorRecord(e)
+    }
+    res.status(500).send("wrong");
+});
+```
 
 ## Log Collection
 ```
@@ -92,19 +140,6 @@ kubectl apply -f `PATH TO log.yaml`
 
 If you want to customize the example, you can build a docker image from the Dockerfile provided here. Then replace the image name in your YAML file.
 
-## Error Handling :
 
-If you want to record exception in traces then you can use track.errorRecord(error) method.
-
-```
- app.get('/error', function (req, res) {
-    try{
-        throw new Error('oh error!');
-    }catch (e) {
-       track.errorRecord(e)
-    }
-    res.status(500).send("wrong");
-});
- 
 
 
