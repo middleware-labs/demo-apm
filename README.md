@@ -37,7 +37,7 @@ This repository contains demo applications for all languages that are supported 
 
 ## Prerequisites
 
-Before using any of the demo applications, you must have the Middleware Agent installed. If you do not have the middleware host agent installed, refer to the [Middleware Agent Installation Documentation](https://docs.middleware.io/agent-installation/overview) before continuing.
+Before using any of the demo applications, you must have the Middleware Agent installed. If you do not have the Middleware Agent installed, refer to the [Middleware Agent Installation Documentation](https://docs.middleware.io/agent-installation/overview) before continuing.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
