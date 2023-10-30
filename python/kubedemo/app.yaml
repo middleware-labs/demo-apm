@@ -20,12 +20,12 @@ spec:
     spec:
       containers:
         - command: ["/bin/sh"]
-          args: ["-c", "middleware-bootstrap -a install && middleware-instrument --resource_attributes=project.name=new-project --metrics_exporter none --exporter_otlp_endpoint 'http://mw-service.mw-agent-ns-xusuu.svc.cluster.local:9319' --traces_exporter otlp --service_name new-service python3 app.py"]
-          # args: ["-c", "middleware-bootstrap -a install && middleware-instrument --resource_attributes=project.name=new-project --metrics_exporter none --exporter_otlp_endpoint 'http://172.31.64.199:9319' --traces_exporter otlp --service_name new-service python3 app.py"]
-          # args: ["-c", "middleware-bootstrap -a install && middleware-instrument --resource_attributes=project.name=new-project --metrics_exporter none --exporter_otlp_endpoint 'http://172.31.64.199:8006' --exporter_otlp_traces_endpoint 'http://172.31.64.199:9319' --traces_exporter otlp --log_exporter fluent --service_name new-service python3 app.py"]
+          args: ["-c", "middleware-apm run python app.py"]
           env:
             - name: MW_AGENT_SERVICE
-              value: mw-service.mw-agent-ns-xusuu.svc.cluster.local
+              value: mw-service.mw-agent-ns.svc.cluster.local
+            - name: MIDDLEWARE_CONFIG_FILE
+              value: ./middleware.ini
           #   - name: MW_AUTOGENERATE_TRACING_DATA
           #     value: "true"
           #   - name: MYSQL_HOST

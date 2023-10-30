@@ -1,14 +1,9 @@
 # You will need request from flask to monitor your traces
 from flask import Flask, request
+
 import logging
-# Add these 3 lines as it is
-from mw_tracker import MwTracker
-tracker=MwTracker(
-    access_token="yzofakgtpcelqsexhzhegmticbrciftarhzd"
-)
-tracker.collect_metrics()
-tracker.collect_logs()
-tracker.collect_profiling()
+from middleware import MwTracker
+tracker=MwTracker()
 
 logging.info("Application initiated successfully.", extra={'Tester': 'Alex'})
 
