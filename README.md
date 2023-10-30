@@ -3,10 +3,6 @@
 <br/>
 
 <div align="center">
-  <a href="https://middleware.io/">
-    <img src="https://middleware.io/images/logo-mw.svg" alt="Logo" height="45">
-  </a>
-
   <h3 align="center">Middleware APM - Demo Applications</h3>
 
   <p align="center">
@@ -24,6 +20,9 @@
     </li>
     <li>
       <a href="#prerequisites">Prerequisites</a>
+    </li>
+    <li>
+      <a href="#license">License</a>
     </li>
   </ol>
 </details>
@@ -45,6 +44,6 @@ Before using any of the demo applications, you must have the Middleware Agent in
 <!-- LICENSE -->
 ## License
 
-Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information.
+Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
