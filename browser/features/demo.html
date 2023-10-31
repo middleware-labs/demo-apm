@@ -1,17 +1,295 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Demo page!</title>
-    <script src="https://cdnjs.middleware.io/browser/libs/0.0.1/middleware-rum.min.js" type="text/javascript"></script>
-    <script  type="text/javascript">
-        Middleware.track({
-            projectName:"Your project name",
-            accountKey:"{ACCOUNT_KEY}",
-            target:"https://{ACCOUNT-UID}.middleware.io"
-        })
+    <style>
+      #form1 {
+        display: inline-block;
+        padding: 1rem 1rem 1rem 1rem;
+      }
+
+      #form2 {
+        display: inline-block;
+        padding: 1rem 1rem 1rem 1rem;
+      }
+    </style>
+    <script
+      src="https://cdnjs.middleware.io/browser/libs/0.0.1/middleware-rum.min.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      Middleware.track({
+        projectName: "Your project name",
+        accountKey: "{ACCOUNT_KEY}",
+        target: "https://{ACCOUNT-UID}.middleware.io",
+      });
     </script>
-</head>
-<body>
-  <p>Middleware platform helps identify, understand and fix issues across your cloud infrastructure.</p>
-</body>
+  </head>
+
+  <body>
+    <h1>Browser Traces</h1>
+    <p></p>
+    <h2>Example Form</h2>
+    <form id="form1" action="javascript:void(0);">
+      <label for="first-name">First name:</label><br />
+      <input type="text" id="first-name" placeholder="Luke" /><br />
+      <label for="last-name">Last name:</label><br />
+      <input type="text" id="last-name" placeholder="Skywalker" /><br /><br />
+
+      <label for="foods">Choose your favorite food:</label>
+      <select id="foods">
+        <option value="">-- Select A Value --</option>
+        <option value="hotdog">Hot Dog</option>
+        <option value="pizza">Pizza</option>
+        <option value="sandwich">Sandwich</option>
+        <option value="rice">Rice</option>
+        <option value="salad">Salad</option>
+        <option value="soup">Soup</option>
+      </select>
+
+      <input type="button" id="btn1" value="Click Me! I work!" />
+      <span id="result1"></span>
+    </form>
+
+    <form id="form2" action="javascript:void(0);">
+      <fieldset>
+        <legend>Do you like apples:</legend>
+
+        <div>
+          <input type="radio" id="yes" name="choice" value="yes" checked />
+          <label for="yes">yes</label>
+        </div>
+
+        <div>
+          <input type="radio" id="no" name="choice" value="no" />
+          <label for="no">no</label>
+        </div>
+
+        <div>
+          <input type="radio" id="maybeso" name="choice" value="maybeso" />
+          <label for="maybeso">maybeso</label>
+        </div>
+      </fieldset>
+      <p>Which do you have</p>
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="skateboard" />
+      <label for="vehicle1"> I have a skateboard</label><br />
+      <input type="checkbox" id="vehicle2" name="vehicle2" value="car" />
+      <label for="vehicle2"> I have a car</label><br />
+      <input type="checkbox" id="vehicle3" name="vehicle3" value="bike" />
+      <label for="vehicle3"> I have a bike</label><br /><br />
+      <input type="button" id="btn2" value="Click Me! I generate and error!" />
+      <span id="result2"></span>
+    </form>
+
+    <div id="lorem-ipsum">
+      <h2>Lorem Ipsum</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Sem nulla pharetra
+        diam sit amet nisl suscipit. Nisl rhoncus mattis rhoncus urna neque
+        viverra. Praesent elementum <a href="www.google.com">facilisis</a> leo
+        vel fringilla est ullamcorper eget. Imperdiet proin fermentum leo vel
+        orci. A cras semper auctor neque. Aliquam faucibus purus in massa tempor
+        nec feugiat. Mattis molestie a iaculis at. Ornare massa eget egestas
+        purus. Urna neque viverra justo nec ultrices dui sapien eget. Neque
+        vitae tempus quam pellentesque nec nam aliquam. Adipiscing elit duis
+        tristique sollicitudin nibh sit amet.
+      </p>
+      <p>
+        Tincidunt tortor aliquam nulla facilisi cras. Enim sed faucibus turpis
+        in eu mi bibendum neque. Nisl condimentum id venenatis a condimentum
+        vitae sapien. Eget velit aliquet sagittis id consectetur. Egestas quis
+        ipsum suspendisse ultrices gravida dictum fusce. Tortor pretium viverra
+        suspendisse potenti nullam ac tortor vitae. Non curabitur gravida arcu
+        ac tortor dignissim convallis aenean et. Tempus urna et pharetra
+        pharetra massa massa ultricies mi. Pretium aenean pharetra magna ac
+        placerat. Natoque penatibus et magnis dis parturient montes nascetur
+        ridiculus. Placerat orci nulla pellentesque dignissim enim sit. Egestas
+        egestas fringilla phasellus faucibus scelerisque eleifend. Mauris vitae
+        ultricies leo integer malesuada nunc vel. Id faucibus nisl tincidunt
+        eget nullam non. Suspendisse faucibus interdum posuere lorem ipsum dolor
+        sit amet consectetur.
+      </p>
+      <p>
+        Lobortis feugiat vivamus at augue eget arcu dictum. Aliquet nibh
+        praesent tristique magna sit. Dictum sit amet justo donec enim diam. Dui
+        vivamus arcu felis bibendum. Eget gravida cum sociis natoque. Commodo
+        nulla facilisi nullam vehicula ipsum a arcu cursus. Nunc mi ipsum
+        faucibus vitae aliquet nec. Arcu non sodales neque sodales. Adipiscing
+        elit duis tristique sollicitudin nibh sit amet commodo. Lobortis
+        elementum nibh tellus molestie nunc non blandit massa.
+      </p>
+      <p>
+        In massa tempor nec feugiat. Diam quam nulla porttitor massa id neque
+        aliquam vestibulum morbi. Posuere morbi leo urna molestie at elementum.
+        Nascetur ridiculus mus mauris vitae. Laoreet non curabitur gravida arcu
+        ac tortor dignissim convallis. Cras fermentum odio eu feugiat pretium
+        nibh ipsum. Enim ut tellus elementum sagittis vitae et leo. Tellus
+        elementum sagittis vitae et leo duis ut. Accumsan sit amet nulla
+        facilisi morbi tempus. Luctus accumsan tortor posuere ac ut consequat
+        semper. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus.
+        Non consectetur a erat nam at lectus. Placerat vestibulum lectus mauris
+        ultrices. Integer enim neque volutpat ac tincidunt. Ut venenatis tellus
+        in metus vulputate eu scelerisque felis imperdiet. Ac turpis egestas
+        maecenas pharetra convallis posuere.
+      </p>
+      <p>
+        Eget dolor morbi non arcu risus quis varius quam. Odio pellentesque diam
+        volutpat commodo sed egestas egestas. Justo nec ultrices dui sapien.
+        Diam phasellus vestibulum lorem sed risus ultricies tristique nulla
+        aliquet. Tempor commodo ullamcorper a lacus vestibulum. Vel risus
+        commodo viverra maecenas accumsan lacus vel. Fringilla urna porttitor
+        rhoncus dolor purus non. Mauris pharetra et ultrices neque ornare aenean
+        euismod elementum nisi. Ut sem viverra aliquet eget. Sit amet venenatis
+        urna cursus. Sit amet purus gravida quis blandit turpis. Ultrices mi
+        tempus imperdiet nulla malesuada pellentesque. Nunc non blandit massa
+        enim nec dui nunc mattis. Quis imperdiet massa tincidunt nunc pulvinar
+        sapien et ligula ullamcorper. Tellus elementum sagittis vitae et leo
+        duis. Vitae ultricies leo integer malesuada nunc.
+      </p>
+      <p>
+        Commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Et
+        malesuada fames ac turpis egestas sed tempus urna. Tristique et egestas
+        quis ipsum. Congue nisi vitae suscipit tellus mauris. Commodo
+        ullamcorper a lacus vestibulum sed arcu. Augue eget arcu dictum varius
+        duis at consectetur lorem donec. Condimentum lacinia quis vel eros donec
+        ac odio tempor. Placerat vestibulum lectus mauris ultrices eros.
+        Elementum eu <a href="www.google.com">facilisis</a> sed odio morbi.
+        Adipiscing bibendum est ultricies integer quis auctor. Odio pellentesque
+        diam volutpat commodo sed. Vitae nunc sed velit dignissim sodales ut eu.
+        Tellus cras adipiscing enim eu turpis egestas pretium aenean.
+      </p>
+      <p>
+        Nunc scelerisque viverra mauris in aliquam sem fringilla ut. Netus et
+        malesuada fames ac. <a href="www.google.com">Facilisis</a> magna etiam
+        tempor orci eu lobortis. Convallis posuere morbi leo urna molestie. In
+        metus vulputate eu scelerisque felis imperdiet proin. Proin libero nunc
+        consequat interdum varius sit amet mattis vulputate. Est velit egestas
+        dui id ornare arcu odio ut. Id venenatis a condimentum vitae sapien.
+        Quam pellentesque nec nam aliquam sem. Justo eget magna fermentum
+        iaculis. Sem nulla pharetra diam sit amet nisl suscipit adipiscing.
+      </p>
+      <p>
+        Vel eros donec ac odio tempor orci. Eget velit aliquet sagittis id.
+        Nascetur ridiculus mus mauris vitae ultricies leo integer. Tortor
+        posuere ac ut consequat. Malesuada nunc vel risus commodo viverra
+        maecenas. Sollicitudin aliquam ultrices sagittis orci a scelerisque
+        purus semper eget. Etiam non quam lacus suspendisse faucibus interdum.
+        Sem integer vitae justo eget. Nam at lectus urna duis convallis
+        convallis. Sit amet purus gravida quis. Purus ut faucibus pulvinar
+        elementum integer enim. Facilisi etiam dignissim diam quis. Nunc mi
+        ipsum faucibus vitae aliquet. Libero justo laoreet sit amet. Vitae
+        tempus quam pellentesque nec nam aliquam sem. Placerat in egestas erat
+        imperdiet sed euismod. Egestas dui id ornare arcu odio ut sem.
+      </p>
+      <p>
+        Aliquam nulla facilisi cras fermentum odio eu feugiat pretium.
+        Vestibulum lectus mauris ultrices eros in cursus turpis. Accumsan in
+        nisl nisi scelerisque eu. Turpis massa tincidunt dui ut. Amet
+        <a href="www.google.com">facilisis</a>
+        magna etiam tempor orci. Blandit massa enim nec dui nunc. Faucibus in
+        ornare quam viverra orci sagittis. Justo laoreet sit amet cursus sit
+        amet. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada. At erat pellentesque adipiscing commodo elit at imperdiet
+        dui. Duis convallis convallis tellus id interdum.
+      </p>
+      <p>
+        Sed risus pretium quam vulputate dignissim suspendisse in. Mi proin sed
+        libero enim sed. In pellentesque massa placerat duis ultricies. Tempor
+        id eu nisl nunc mi ipsum faucibus vitae. Egestas quis ipsum suspendisse
+        ultrices gravida dictum. Dignissim diam quis enim lobortis scelerisque
+        fermentum. Quam quisque id diam vel quam. Rhoncus dolor purus non enim
+        praesent elementum. Nulla pellentesque dignissim enim sit amet venenatis
+        urna cursus. Eget nullam non nisi est sit amet
+        <a href="www.google.com">facilisis</a> magna.
+      </p>
+      <p>
+        Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec
+        pretium. Sapien nec sagittis aliquam malesuada bibendum. Est
+        pellentesque elit ullamcorper dignissim cras tincidunt lobortis.
+        Lobortis scelerisque fermentum dui faucibus in ornare quam. Urna id
+        volutpat lacus laoreet non curabitur. A iaculis at erat pellentesque
+        adipiscing commodo elit. Tellus in hac habitasse platea dictumst
+        vestibulum rhoncus est pellentesque. Velit aliquet sagittis id
+        consectetur purus ut faucibus pulvinar. Id faucibus nisl tincidunt eget
+        nullam non. Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum.
+        Non diam phasellus vestibulum lorem. Faucibus et molestie ac feugiat sed
+        lectus.
+      </p>
+      <p>
+        Nibh tortor id aliquet lectus. Quisque egestas diam in arcu cursus
+        euismod quis viverra. Duis at tellus at urna condimentum mattis
+        pellentesque id nibh. Eleifend mi in nulla posuere sollicitudin aliquam
+        ultrices sagittis. Pharetra vel turpis nunc eget lorem. Sed turpis
+        tincidunt id aliquet risus. Quisque sagittis purus sit amet. Nisl nisi
+        scelerisque eu ultrices vitae. Tristique sollicitudin nibh sit amet.
+        Vitae semper quis lectus nulla. Volutpat diam ut venenatis tellus in.
+        Condimentum mattis pellentesque id nibh tortor id aliquet. In tellus
+        integer feugiat scelerisque varius morbi enim nunc faucibus. Convallis
+        posuere morbi leo urna molestie at elementum eu. Elit sed vulputate mi
+        sit. Rutrum quisque non tellus orci ac auctor augue mauris augue. Nunc
+        sed blandit libero volutpat sed cras ornare arcu dui. Ut aliquam purus
+        sit amet. Tortor at auctor urna nunc id cursus metus aliquam.
+      </p>
+      <p>
+        Scelerisque varius morbi enim nunc. Eget duis at tellus at urna
+        condimentum mattis. Nam libero justo laoreet sit amet cursus sit. Arcu
+        dictum varius duis at consectetur. Bibendum arcu vitae elementum
+        curabitur vitae nunc sed velit dignissim. Nunc mi ipsum faucibus vitae
+        aliquet nec ullamcorper. Gravida rutrum quisque non tellus orci.
+        Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. Neque
+        viverra justo nec ultrices dui sapien. Cum sociis natoque penatibus et
+        magnis. Non pulvinar neque laoreet suspendisse interdum consectetur
+        libero id faucibus. Dolor morbi non arcu risus quis varius quam quisque.
+        Est placerat in egestas erat imperdiet sed. Sit amet purus gravida quis
+        blandit turpis cursus in hac. Scelerisque in dictum non consectetur a
+        erat. Lacinia at quis risus sed vulputate odio ut enim. Vel quam
+        elementum pulvinar etiam non quam lacus suspendisse. Enim nunc faucibus
+        a pellentesque sit amet porttitor eget dolor. Felis donec et odio
+        pellentesque. Iaculis nunc sed augue lacus viverra.
+      </p>
+      <p>
+        Accumsan tortor posuere ac ut consequat semper. Id interdum velit
+        laoreet id donec ultrices tincidunt arcu non. Nam at lectus urna duis.
+        Adipiscing tristique risus nec feugiat in. Arcu odio ut sem nulla
+        pharetra diam sit amet. Id aliquet lectus proin nibh nisl condimentum
+        id. Eget est lorem ipsum dolor sit. Pretium fusce id velit ut tortor
+        pretium. Lorem ipsum dolor sit amet. Commodo viverra maecenas accumsan
+        lacus vel <a href="www.google.com">facilisis</a>.
+      </p>
+      <p>
+        Aliquet risus feugiat in ante metus dictum at tempor. Sit amet
+        consectetur adipiscing elit duis tristique sollicitudin nibh sit. Auctor
+        elit sed vulputate mi sit. Mi in nulla posuere sollicitudin aliquam
+        ultrices sagittis. Turpis massa tincidunt dui ut ornare lectus sit amet.
+        A scelerisque purus semper eget duis at. Egestas congue quisque egestas
+        diam in. Viverra nibh cras pulvinar mattis nunc sed blandit libero
+        volutpat. Mattis enim ut tellus elementum sagittis vitae et leo. Sit
+        amet porttitor eget dolor morbi non. Purus non enim praesent elementum
+        <a href="www.google.com">facilisis</a> leo vel fringilla est. Rutrum
+        tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Gravida
+        cum sociis natoque penatibus et. Sed adipiscing diam donec adipiscing.
+        Sed odio morbi quis commodo odio aenean sed adipiscing. Nec feugiat nisl
+        pretium fusce id velit. Malesuada bibendum arcu vitae elementum.
+      </p>
+    </div>
+    <script>
+      const btn1 = document.getElementById("btn1");
+      btn1.addEventListener("click", (e) => {
+        let firstName = document.getElementById("first-name").value;
+        let lastName = document.getElementById("last-name").value;
+        let favoriteFood = document.getElementById("foods").value;
+        document.getElementById(
+          "result1"
+        ).innerHTML = `<p>Your name is ${firstName || "No selection"} ${lastName || "No selection"} and your favorite food is ${favoriteFood || "No Selection"}<p>`;
+      });
+
+      const btn2 = document.getElementById("btn2");
+      btn2.addEventListener("click", (e) => {
+        document.getElementById("result2").innerHTML =
+          "<p>Something went wrong! Check your console!<p>";
+        document.getElementById("result2").innerHTML("Not a function!");
+      });
+    </script>
+  </body>
 </html>
