@@ -1,6 +1,6 @@
-# Browser traces Setup
+# Real User Monitoring and Browser Traces
 
-To monitor Browser data on a dashboard, add these lines given below at the head section of your project.
+To enable Real User Monitoring (RUM) and browser traces add the following to the `<head>` section of your project
 
 ```HTML
 <script src="https://cdnjs.middleware.io/browser/libs/0.0.1/middleware-rum.min.js" type="text/javascript"></script>
