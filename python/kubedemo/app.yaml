@@ -19,9 +19,7 @@ spec:
       creationTimestamp: null
     spec:
       containers:
-        - command: ["/bin/sh"]
-          args: ["-c", "middleware-apm run python app.py"]
-          env:
+        - env:
             - name: MW_AGENT_SERVICE
               value: mw-service.mw-agent-ns.svc.cluster.local
             - name: MIDDLEWARE_CONFIG_FILE
