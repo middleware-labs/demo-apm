@@ -3,7 +3,7 @@ module http
 go 1.18
 
 require (
-	github.com/middleware-labs/golang-apm v1.0.998
+	github.com/middleware-labs/golang-apm v1.1.100
 	github.com/middleware-labs/golang-apm-http v0.0.1
 )
 
@@ -21,6 +21,7 @@ require (
 	github.com/pyroscope-io/godeltaprof v0.1.2 // indirect
 	github.com/tinylib/msgp v1.1.8 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.43.0 // indirect
+	go.opentelemetry.io/contrib/propagators/b3 v1.9.0 // indirect
 	go.opentelemetry.io/otel v1.17.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.16.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric v0.39.0 // indirect

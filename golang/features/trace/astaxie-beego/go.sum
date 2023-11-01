@@ -223,6 +223,8 @@ github.com/middleware-labs/golang-apm v1.0.991/go.mod h1:vRHCsJtxOqb1Pwull8RMCi4
 github.com/middleware-labs/golang-apm v1.0.994/go.mod h1:mQnBp5WH7YWjll+VqC1FTDhCSXZbLCamRCOS/tgMu/A=
 github.com/middleware-labs/golang-apm v1.0.998 h1:hYuKtJWKgcGtp6Ub2vfc7t0TjSUgiCP58IwCHc0G7Yw=
 github.com/middleware-labs/golang-apm v1.0.998/go.mod h1:d7f6iwfxFvqFUYOBd+fBcAmSvowAhIvFJWT9z7tAUSI=
+github.com/middleware-labs/golang-apm v1.1.100 h1:oPdoCDCaUrIh9fAIPMKG+M3KldPbZm10ALBNpZ1p8mE=
+github.com/middleware-labs/golang-apm v1.1.100/go.mod h1:DFoKUXFJVmpjC38Fxwg6UNoe0E2o6lb6jNFVsNXZFys=
 github.com/middleware-labs/golang-apm-beego v0.0.3 h1:qttO9/EswUtENUtzC+hkL3VfM900lo2yd/+p7ykCEnQ=
 github.com/middleware-labs/golang-apm-beego v0.0.3/go.mod h1:otLghiem0CS85jdIpZbjoccuzHJoh9keq21Qu4TXtTA=
 github.com/middleware-labs/golang-apm-beego v0.0.4 h1:qSHX1NeGiUZrNMPncil/piJbyKaoJYvgbtSosAJkn7c=
@@ -340,6 +342,8 @@ go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.40.0 h1:lE9EJyw
 go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.40.0/go.mod h1:pcQ3MM3SWvrA71U4GDqv9UFDJ3HQsW7y5ZO3tDTlUdI=
 go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.42.0 h1:pginetY7+onl4qN1vl0xW/V/v6OBZ0vVdH+esuJgvmM=
 go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.42.0/go.mod h1:XiYsayHc36K3EByOO6nbAXnAWbrUxdjUROCEeeROOH8=
+go.opentelemetry.io/contrib/propagators/b3 v1.9.0 h1:Lzb9zU98jCE2kyfCjWfSSsiQoGtvBL+COxvUBf7FNhU=
+go.opentelemetry.io/contrib/propagators/b3 v1.9.0/go.mod h1:fyx3gFXn+4w5uWTTiqaI8oBNBW/6w9Ow5zxXf7NGixU=
 go.opentelemetry.io/otel v1.13.0 h1:1ZAKnNQKwBBxFtww/GwxNUyTf0AxkZzrukO8MeXqe4Y=
 go.opentelemetry.io/otel v1.13.0/go.mod h1:FH3RtdZCzRkJYFTCsAKDy9l/XYjMdNv6QrkFFB8DvVg=
 go.opentelemetry.io/otel v1.14.0 h1:/79Huy8wbf5DnIPhemGB+zEPVwnN6fuQybr/SRXa6hM=
