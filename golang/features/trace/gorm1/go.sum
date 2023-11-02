@@ -205,6 +205,8 @@ github.com/middleware-labs/golang-apm v1.0.991 h1:4y40Xk5hrg9p/465rvTp+pXFZnPDCW
 github.com/middleware-labs/golang-apm v1.0.991/go.mod h1:vRHCsJtxOqb1Pwull8RMCi4QsgyCEIo1EFQMCHLK8iw=
 github.com/middleware-labs/golang-apm v1.0.998 h1:hYuKtJWKgcGtp6Ub2vfc7t0TjSUgiCP58IwCHc0G7Yw=
 github.com/middleware-labs/golang-apm v1.0.998/go.mod h1:d7f6iwfxFvqFUYOBd+fBcAmSvowAhIvFJWT9z7tAUSI=
+github.com/middleware-labs/golang-apm v1.1.100 h1:oPdoCDCaUrIh9fAIPMKG+M3KldPbZm10ALBNpZ1p8mE=
+github.com/middleware-labs/golang-apm v1.1.100/go.mod h1:DFoKUXFJVmpjC38Fxwg6UNoe0E2o6lb6jNFVsNXZFys=
 github.com/middleware-labs/golang-apm-gin v0.4.1 h1:VolZMyARgPX8PqEWVbKWmis4PGGwD66HVgG9ewVAyIY=
 github.com/middleware-labs/golang-apm-gin v0.4.1/go.mod h1:PJ5BwtrVP6rSkh1TX3bARqkhxS3kekYUKaOFwJ/FGyw=
 github.com/middleware-labs/golang-apm-gin v0.4.2 h1:BjE8O7qR+OwZTFgXLMmBKbE3lZtP2r0odc5OnvAAFOE=
@@ -278,6 +280,8 @@ go.opencensus.io v0.22.3/go.mod h1:yxeiOL68Rb0Xd1ddK5vPZ/oVn4vY4Ynel7k9FzqtOIw=
 go.opencensus.io v0.22.4/go.mod h1:yxeiOL68Rb0Xd1ddK5vPZ/oVn4vY4Ynel7k9FzqtOIw=
 go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin v0.34.0 h1:wy5fZjhOPoh9b8GMJQ4M91f8rXqRZisTn0vdi5nwJD4=
 go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin v0.34.0/go.mod h1:Z4izXLrEw517ux2YzM2qnbTlirPilcwbF/uh/9xWDio=
+go.opentelemetry.io/contrib/propagators/b3 v1.9.0 h1:Lzb9zU98jCE2kyfCjWfSSsiQoGtvBL+COxvUBf7FNhU=
+go.opentelemetry.io/contrib/propagators/b3 v1.9.0/go.mod h1:fyx3gFXn+4w5uWTTiqaI8oBNBW/6w9Ow5zxXf7NGixU=
 go.opentelemetry.io/otel v1.14.0 h1:/79Huy8wbf5DnIPhemGB+zEPVwnN6fuQybr/SRXa6hM=
 go.opentelemetry.io/otel v1.14.0/go.mod h1:o4buv+dJzx8rohcUeRmWUZhqupFvzWis188WlggnNeU=
 go.opentelemetry.io/otel v1.16.0 h1:Z7GVAX/UkAXPKsy94IU+i6thsQS4nb7LviLpnaNeW8s=

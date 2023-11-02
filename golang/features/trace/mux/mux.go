@@ -54,7 +54,7 @@ func main() {
 	r.PathPrefix("/").Handler(spa)
 	srv := &http.Server{
 		Handler:      r,
-		Addr:         "127.0.0.1:8000",
+		Addr:         "127.0.0.1:8005",
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}

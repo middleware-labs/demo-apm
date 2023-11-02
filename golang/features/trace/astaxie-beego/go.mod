@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/astaxie/beego v1.12.3
-	github.com/middleware-labs/golang-apm v1.0.998
+	github.com/middleware-labs/golang-apm v1.1.100
 	github.com/middleware-labs/golang-apm-beego v0.0.7
 )
 
@@ -32,6 +32,7 @@ require (
 	github.com/tinylib/msgp v1.1.8 // indirect
 	go.opentelemetry.io/contrib/instrumentation/github.com/astaxie/beego/otelbeego v0.42.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.42.0 // indirect
+	go.opentelemetry.io/contrib/propagators/b3 v1.9.0 // indirect
 	go.opentelemetry.io/otel v1.16.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.16.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric v0.39.0 // indirect

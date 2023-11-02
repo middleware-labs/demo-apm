@@ -3,7 +3,7 @@ module go-grpc
 go 1.18
 
 require (
-	github.com/middleware-labs/golang-apm v1.0.998
+	github.com/middleware-labs/golang-apm v1.1.100
 	github.com/middleware-labs/golang-apm-grpc v0.0.3
 	google.golang.org/grpc v1.57.0
 	google.golang.org/grpc/examples v0.0.0-20230831183909-e498bbc9bd37
@@ -22,6 +22,7 @@ require (
 	github.com/pyroscope-io/godeltaprof v0.1.2 // indirect
 	github.com/tinylib/msgp v1.1.8 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.42.0 // indirect
+	go.opentelemetry.io/contrib/propagators/b3 v1.9.0 // indirect
 	go.opentelemetry.io/otel v1.16.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.16.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric v0.39.0 // indirect
