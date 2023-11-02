@@ -1,9 +1,11 @@
 name = "test-otel-worker-webpack-sdk"
-main = "src/index.ts"
+type = "webpack"
+main = "dist/worker.js"
 compatibility_date = "2023-02-01"
 usage_model = "bundled"
 logpush = true
 env = { }
+webpack_config = "webpack.config.js"
 
 [triggers]
 crons = [ ]

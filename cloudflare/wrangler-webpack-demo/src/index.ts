@@ -14,8 +14,8 @@ export default {
 		init({
 			projectName:"demo-cloudflare-project",
 			serviceName:"demo-cloudflare-service",
-			accountKey:"{ACCOUNT_KEY}",
-            target:"https://{ACCOUNT-UID}.middleware.io"
+			accountKey:"lzfywamjxpfaepytxwcavxgnxmkwebkuccyi",
+            target:"https://ttmxa.middleware.io"
 		})
 		
 		const sdk = track(request, ctx);
@@ -23,7 +23,7 @@ export default {
 		sdk.logger.error("demo error log")
 		sdk.logger.info("demo info log")
 		sdk.logger.warn("demo warn log")
-		sdk.logger.debug("demo debug log")
+		sdk.logger.debug("demo debug1 log")
 
 		const url = new URL(request.url);
 
