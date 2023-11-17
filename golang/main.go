@@ -14,19 +14,15 @@ func main() {
 		track.WithConfigTag("service", "Your service Name"),
 		track.WithConfigTag("projectName", "your project name"),
 	)
+	// logs
+    logger.Error("Error")
+    logger.Info("Info")
+    logger.Warn("Warn")
+
 	r := gin.Default()
 	r.Use(g.Middleware(config))
 	r.GET("/books", FindBooks)
 	r.Run(":8090")
-
-	// logs
-
-	logger.Error("Error")
-
-	logger.Info("Info")
-
-	logger.Warn("Warn")
-
 }
 
 func FindBooks(c *gin.Context) {
