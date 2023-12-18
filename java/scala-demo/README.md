@@ -22,5 +22,5 @@ Scala Version: 2.11.6
   ```
 - Run the following command to start the application.
   ```shell
-  MW_API_KEY = "wepjqgwgvwwtmwjanppcatwxmegaqardaxmf" sbt run
+  MW_API_KEY=<YOUR_API_KEY> sbt run
   ```
