@@ -64,13 +64,13 @@ collect_profiling = true
 
 # ---------------------------------------------------------------------------
 ```
+#### Note: You need to replace <strong>\{YOUR-ACCESS-TOKEN\}</strong> with your APM's Access Token.
 
 ## Run Your Application
 To run your application, use the following command:
 ```shell
 MIDDLEWARE_CONFIG_FILE=./middleware.ini middleware-apm run python app.py
 ```
-#### Note: You need to replace <strong>\{YOUR-ACCESS-TOKEN\}</strong> with your APM's Access Token.
 
 ---------------------------------
 
