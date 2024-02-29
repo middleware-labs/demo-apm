@@ -87,8 +87,17 @@ collect_profiling = true
 #### Note: You need to replace <strong>\{YOUR-ACCESS-TOKEN\}</strong> with your APM's Access Token.
 
 ## Run Your Application
-After which you can run::
+After performing all the above steps, now you can uncomment below lines, from manage.py file:
+```python
+from middleware import MwTracker
+tracker=MwTracker()
 
+def main():
+    # -- existing code --
+    tracker.django_instrument()
+    # -- existing code --
+```
+Now, you can go ahead to run your application, by using:
 ```python
 DJANGO_SETTINGS_MODULE='helloworld.settings' MIDDLEWARE_CONFIG_FILE=./middleware.ini middleware-apm run python3 manage.py runserver
 ```
