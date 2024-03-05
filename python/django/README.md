@@ -41,6 +41,8 @@ pip install -r requirements.txt
 And later followed by:
 
 ```python
+export OTEL_PYTHON_TRACER_PROVIDER=sdk_tracer_provider 
+export MIDDLEWARE_CONFIG_FILE=./middleware.ini
 python3 manage.py migrate
 ```
 
