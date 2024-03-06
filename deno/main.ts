@@ -17,7 +17,6 @@ function handler(_req: Request): Response {
     const data = {
         message: `Hello world!`,
     }
-    info('Request received in test_function_2!')
     return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
 }
 await serve(httpTracer(handler))

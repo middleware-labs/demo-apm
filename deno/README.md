@@ -32,7 +32,6 @@ Before you begin, ensure you have Deno installed on your system. You can install
        const data = {
            message: `Hello world!`,
        };
-       info('Request received in test_function_2!');
        return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
     }
     ```
