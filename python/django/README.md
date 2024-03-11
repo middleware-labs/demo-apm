@@ -12,49 +12,8 @@ You can follow our [documentation](https://docs.middleware.io/docs/apm-configura
 Ensure that you have the Middleware Host Agent installed to view Python demo data on your dashboard.
 
 ---------------------
-## Installing Pre-Requirements
-
-You need install the pre-requirements for run this Hello World example.
-
-Update repositories of available packages to install, with
-the following command:
-
-```shell
-sudo apt update
-```
-
-Install necessary minimum dependencies, with the following command:
-
-```shell
-sudo apt install python3-dev python3-pip python3-virtualenv sqlitebrowser
-```
-
-For run this example need to install Django
-framework execute the follow command:
-
-```python
-virtualenv django_instrumentation
-source django_instrumentation/bin/activate
-pip install -r requirements.txt
-```
-
-And later followed by:
-
-```python
-export OTEL_PYTHON_TRACER_PROVIDER=sdk_tracer_provider 
-export MIDDLEWARE_CONFIG_FILE=./middleware.ini
-python3 manage.py migrate
-```
-
-
-For use the Django Admin Interface, it's needed to create a superuser 
-for management, with the following command:
-
-```python
-python3 manage.py createsuperuser --username admin --email admin@mail.com
-```
-## Setup middleware.ini File
-Setup your .ini file, based on below features that you want to observe in your project.
+## Setup `middleware.ini` File
+Setup your `middleware.ini` file, based on below features that you want to observe in your project. Place the file at the root of your project.
 ```ini
 # ---------------------------------------------------------------------------
 # This file contains settings for the Middleware Python-APM Agent.
@@ -88,6 +47,46 @@ collect_profiling = true
 ```
 #### Note: You need to replace <strong>\{YOUR-ACCESS-TOKEN\}</strong> with your APM's Access Token.
 
+## Installing Pre-Requirements
+
+You need install the pre-requirements for run this Hello World example.
+
+Update repositories of available packages to install, with
+the following command:
+
+```shell
+sudo apt update
+```
+
+Install necessary minimum dependencies, with the following command:
+
+```shell
+sudo apt install python3-dev python3-pip python3-virtualenv sqlitebrowser
+```
+
+For run this example need to install Django
+framework execute the follow command:
+
+```python
+virtualenv django_instrumentation
+source django_instrumentation/bin/activate
+pip install -r requirements.txt
+```
+
+And later followed by:
+
+```python
+export MIDDLEWARE_CONFIG_FILE=./middleware.ini
+python3 manage.py migrate
+```
+
+
+For use the Django Admin Interface, it's needed to create a superuser 
+for management, with the following command:
+
+```python
+python3 manage.py createsuperuser --username admin --email admin@mail.com
+```
 ## Run Your Application
 After performing all the above steps, now you can uncomment below lines, from manage.py file:
 ```python
@@ -101,9 +100,9 @@ def main():
 ```
 Now, you can go ahead to run your application, by using:
 ```python
-DJANGO_SETTINGS_MODULE='helloworld.settings' MIDDLEWARE_CONFIG_FILE=./middleware.ini middleware-apm run python3 manage.py runserver
+DJANGO_SETTINGS_MODULE='helloworld.settings' middleware-apm run python3 manage.py runserver
 ```
-
+#### Note: If `middleware.ini` isn't in your project's root, set `MIDDLEWARE_CONFIG_FILE=./path/to/middleware.ini` along with the above run command.
 Then, you can open the URL http://127.0.0.1:8000/ in your web browser.
 
 Also you can open in your web browser the URL http://127.0.0.1:8000/admin for access to 

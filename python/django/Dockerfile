@@ -24,7 +24,7 @@ WORKDIR /usr/src/app/
 COPY --from=builder /reqs /usr/local
 COPY ./ ./
 
-ENV OTEL_PYTHON_TRACER_PROVIDER=sdk_tracer_provider
-RUN MIDDLEWARE_CONFIG_FILE=./middleware.ini python3 manage.py migrate 
-RUN MIDDLEWARE_CONFIG_FILE=./middleware.ini python3 manage.py createsuperuser --username admin --email admin@mail.com
+ENV MIDDLEWARE_CONFIG_FILE=./middleware.ini
+RUN python3 manage.py migrate
+RUN python3 manage.py createsuperuser --username admin --email admin@mail.com
 RUN middleware-bootstrap -a install 

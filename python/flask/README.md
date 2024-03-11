@@ -32,7 +32,7 @@ logging.warning("Sample Warning Log.")
 logging.error("Sample Error Log.", extra={'tester': 'Alex'})
 ```
 ## Setup middleware.ini File
-Setup your .ini file, based on below features that you want to observe in your project.
+Setup your `middleware.ini` file, based on below features that you want to observe in your project. Place the file at the root of your project.
 ```ini
 # ---------------------------------------------------------------------------
 # This file contains settings for the Middleware Python-APM Agent.
@@ -69,8 +69,9 @@ collect_profiling = true
 ## Run Your Application
 To run your application, use the following command:
 ```shell
-MIDDLEWARE_CONFIG_FILE=./middleware.ini middleware-apm run python app.py
+middleware-apm run python app.py
 ```
+#### Note: If `middleware.ini` isn't in your project's root, set `MIDDLEWARE_CONFIG_FILE=./path/to/middleware.ini` along with the above run command.
 
 ---------------------------------
 
