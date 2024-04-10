@@ -13,10 +13,21 @@ namespace WebApplication1.Controllers
             this._personRepository = personsRepository;
         }
 
-        [HttpGet("GetAllPersonsData")]
-        public async Task<IActionResult> GetAllPersonsData()
+        [HttpGet("GetAllPersonsData_SP")]
+        public async Task<IActionResult> GetAllPersonsData_SP()
         {
-            var response = await _personRepository.GetAllPersonsData();
+            var response = await _personRepository.GetAllPersonsData_SP();
+            if (!response.Any())
+            {
+                return NotFound("No Data Found");
+            } 
+            return Ok(response);
+        }
+        
+        [HttpGet("GetAllPersonsData_SQL")]
+        public async Task<IActionResult> GetAllPersonsData_SQL()
+        {
+            var response = await _personRepository.GetAllPersonsData_SQL();
             if (!response.Any())
             {
                 return NotFound("No Data Found");

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  dotnet-app:
+    container_name: dotnet-app
+    build:
+      context: ./Mw-WebApplication/
+    environment:
+      - MW_AGENT_SERVICE=172.17.0.1
+      - MW_API_KEY=your-api-key
+      - OTEL_SERVICE_NAME=dotnet-service
+      - OTEL_RESOURCE_ATTRIBUTES=project.name=dotnet-project
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5000:80"
+    restart: on-failure
+  mssql:
+    container_name: mssql-db
+    hostname: mssql-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'Admin@123'
+      MSSQL_PID: 'Developer'
+      MSSQL_TCP_PORT: 1433
+    ports:
+      - "1455:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+      - ./Mw-WebApplication/sql-scripts:/docker-entrypoint-initdb.d
+volumes:
+  mssql_data:
+    driver: local
