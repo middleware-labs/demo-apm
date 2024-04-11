@@ -22,12 +22,13 @@ services:
       ACCEPT_EULA: 'Y'
       MSSQL_SA_PASSWORD: 'Admin@123'
       MSSQL_PID: 'Developer'
-      MSSQL_TCP_PORT: 1433
     ports:
       - "1455:1433"
     volumes:
       - mssql_data:/var/opt/mssql
       - ./Mw-WebApplication/sql-scripts:/docker-entrypoint-initdb.d
+    command: [ "bash", "-c", "/opt/mssql/bin/sqlservr & sleep 5 && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Admin@123 -d master -i /docker-entrypoint-initdb.d/init.sql && tail -f /dev/null" ]
+    
 volumes:
   mssql_data:
     driver: local
