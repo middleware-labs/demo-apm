@@ -1,10 +1,12 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	g "github.com/middleware-labs/golang-apm-gin/gin"
+	"github.com/middleware-labs/golang-apm/logger"
 	track "github.com/middleware-labs/golang-apm/tracker"
-	"net/http"
 )
 
 func main() {

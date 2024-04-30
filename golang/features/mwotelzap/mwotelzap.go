@@ -1,13 +1,8 @@
 package main
 
 import (
-	"math/rand/v2"
-	"net/http"
 	"os"
-	"time"
 
-	"github.com/gin-gonic/gin"
-	g "github.com/middleware-labs/golang-apm-gin/gin"
 	mwotelzap "github.com/middleware-labs/golang-apm/mwotelzap"
 	track "github.com/middleware-labs/golang-apm/tracker"
 
@@ -20,7 +15,6 @@ func main() {
 	config, _ := track.Track(
 		track.WithConfigTag("service", "your service name"),
 		track.WithConfigTag("projectName", "your project name"),
-		track.WithConfigTag("accessToken", "your token"),
 	)
 
 	// Define encoder configuration
@@ -57,24 +51,9 @@ func main() {
 	logger := zap.New(zapcore.NewTee(consoleCore, fileCore, mwotelzap.NewMWOtelCore(config)))
 	zap.ReplaceGlobals(logger)
 
-	go makeRequest(logger)
+	//logs
+	logger.Error("Error")
+	logger.Info("Info")
+	logger.Warn("Warn")
 
-	r := gin.Default()
-	r.Use(g.Middleware(config))
-	r.GET("/books", FindBooks)
-	r.Run(":8090")
-}
-
-func FindBooks(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"data": "ok"})
-}
-
-func makeRequest(logger *zap.Logger) {
-	for {
-		logger.Error("Error")
-		logger.Info("Info")
-		logger.Warn("Warn")
-		time.Sleep(time.Duration(rand.IntN(100)) * 10 * time.Millisecond)
-		http.Get("http://localhost:8090/books")
-	}
 }
