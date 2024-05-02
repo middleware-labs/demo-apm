@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Middleware.Logger;
+// using Middleware.Logger;
 
 namespace WebApplication1;
 
@@ -15,7 +15,8 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        Logger.Info("In: WeatherForecastController.GetWeatherForecast");
+        // Logger.Info("In: WeatherForecastController.GetWeatherForecast");
+        // Logger.Error("In: WeatherForecastController.111111111GetWeatherForecast");
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

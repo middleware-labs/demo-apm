@@ -1,19 +1,51 @@
 version: '3.8'
 
 services:
-  dotnet-app:
-    container_name: dotnet-app
-    build:
-      context: ./Mw-WebApplication/
-    environment:
-      - MW_AGENT_SERVICE=172.17.0.1
-      - MW_API_KEY=your-api-key
-      - OTEL_SERVICE_NAME=dotnet-service
-      - OTEL_RESOURCE_ATTRIBUTES=project.name=dotnet-project
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "5000:80"
-    restart: on-failure
+  # dotnet-app:
+  #   container_name: dotnet-app
+  #   # build:
+  #   #   context: ./Mw-WebApplication/
+  #   image: ghcr.io/middleware-labs/dotnet-mssql-demo:7-110-rc1
+  #   environment:
+  #     - MW_AGENT_SERVICE=172.17.0.1
+  #     - MW_API_KEY=evaddjfmazsdz8qip2cxva99muxv30wq6g6c
+  #     - OTEL_SERVICE_NAME=dotnet-service
+  #     - OTEL_RESOURCE_ATTRIBUTES=project.name=dotnet-project
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #   ports:
+  #     - "5009:80"
+  #   restart: on-failure
+  # mssql:
+  #   container_name: mssql-db
+  #   hostname: mssql-db
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   environment:
+  #     ACCEPT_EULA: 'Y'
+  #     MSSQL_SA_PASSWORD: 'Admin@123'
+  #     MSSQL_PID: 'Developer'
+  #   ports:
+  #     - "1455:1433"
+  #   volumes:
+  #     - mssql_data:/var/opt/mssql
+  #     - ./Mw-WebApplication/sql-scripts:/docker-entrypoint-initdb.d
+  #   command: [ "bash", "-c", "/opt/mssql/bin/sqlservr & sleep 5 && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Admin@123 -d master -i /docker-entrypoint-initdb.d/init.sql && tail -f /dev/null" ]
+    
+  # dotnet-app:
+  #   container_name: dotnet-app
+  #   build:
+  #     context: ./Mw-WebApplication/
+  #   # image: ghcr.io/middleware-labs/dotnet-mssql-demo:7-140-dll
+  #   environment:
+  #     # - MW_AGENT_SERVICE=172.17.0.1
+  #     - MW_API_KEY=evaddjfmazsdz8qip2cxva99muxv30wq6g6c
+  #     - OTEL_SERVICE_NAME=dotnet-service
+  #     - OTEL_RESOURCE_ATTRIBUTES=project.name=dotnet-project
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     # - OTEL_EXPORTER_OTLP_ENDPOINT=localhost:9319
+  #     - SQL_SERVER_CONNECTION_STRING=Server=localhost,1433;Database=master;User Id=sa;Password=Admin@123;Persist Security Info=False;Timeout=300;MultipleActiveResultSets=true;Application Name=dotnet-demo-mssql;TrustServerCertificate=True;
+  #   network_mode: host
+  #   restart: on-failure
+
   mssql:
     container_name: mssql-db
     hostname: mssql-db
@@ -22,13 +54,8 @@ services:
       ACCEPT_EULA: 'Y'
       MSSQL_SA_PASSWORD: 'Admin@123'
       MSSQL_PID: 'Developer'
-    ports:
-      - "1455:1433"
-    volumes:
-      - mssql_data:/var/opt/mssql
-      - ./Mw-WebApplication/sql-scripts:/docker-entrypoint-initdb.d
-    command: [ "bash", "-c", "/opt/mssql/bin/sqlservr & sleep 5 && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Admin@123 -d master -i /docker-entrypoint-initdb.d/init.sql && tail -f /dev/null" ]
-    
+    network_mode: host
+
 volumes:
   mssql_data:
     driver: local

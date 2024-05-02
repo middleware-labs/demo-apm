@@ -11,7 +11,12 @@ namespace WebApplication1.Data
         public DapperContext(IConfiguration configuration)
         {
             this._configuration = configuration;
-            this.connectionString = _configuration.GetConnectionString("LocalDBConnectionString");
+            this.connectionString = Environment.GetEnvironmentVariable("SQL_SERVER_CONNECTION_STRING");
+
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                this.connectionString = _configuration.GetConnectionString("LocalDBConnectionString");
+            }
         }
 
         public IDbConnection CreateDBConnection() => new SqlConnection(connectionString);
