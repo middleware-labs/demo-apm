@@ -26,18 +26,18 @@ ruby/**/tmp/*
 !ruby/**/log/.keep
 !ruby/**/tmp/.keep
 
-/node_modules
-/.pnp
+node_modules/
+.pnp/
 .pnp.js
 .yarn/install-state.gz
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
-/build
+.next/
+out/
+build/
 
 # misc
 .DS_Store
