@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
+import * as React from "react";
+import Link from "next/link";
 
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/ui/icons"
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/ui/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,45 +13,46 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 const components = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
+    title: "OpenTelemetry",
+    href: "https://opentelemetry.io/",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "OpenTelemetry is a set of APIs, libraries, agents, and instrumentation to provide observability for cloud-native software.",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
+    title: "Tailwind CSS",
+    href: "https://tailwindcss.com/",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
+    title: "Next.js",
+    href: "https://nextjs.org/",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Next.js is a React framework that enables functionality such as server-side rendering and generating static websites.",
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    title: "ESLint",
+    href: "https://eslint.org/",
+    description:
+      "ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code.",
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
+    title: "Kubernetes",
+    href: "https://kubernetes.io/",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "Kubernetes is an open-source container-orchestration system for automating computer application deployment, scaling, and management.",
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
+    title: "Middleware",
+    href: "https://middleware.io/",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "Middleware is a real-time observability platform that provides insights into the performance and behavior of your applications.",
   },
-]
+];
 
 export function NavigationMenuDemo() {
   return (
@@ -92,7 +93,7 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Dropdown Example</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -108,7 +109,11 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link
+            href="https://docs.middleware.io/rum/rum-nextjs"
+            legacyBehavior
+            passHref
+          >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Documentation
             </NavigationMenuLink>
@@ -116,28 +121,30 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
 
-const ListItem = React.forwardRef(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"
+const ListItem = React.forwardRef(
+  ({ className, title, children, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className,
+            )}
+            {...props}
+          >
+            <div className="text-sm font-medium leading-none">{title}</div>
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+              {children}
+            </p>
+          </a>
+        </NavigationMenuLink>
+      </li>
+    );
+  },
+);
+ListItem.displayName = "ListItem";
