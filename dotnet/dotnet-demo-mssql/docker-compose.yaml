@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  dotnet-app:
+    container_name: dotnet-app
+    build:
+      context: ./Mw-WebApplication/
+    environment:
+      - MW_API_KEY=evaddjfmazsdz8qip2cxva99muxv30wq6g6c
+      - OTEL_SERVICE_NAME=dotnet-service
+      - OTEL_RESOURCE_ATTRIBUTES=project.name=dotnet-project
+      - ASPNETCORE_ENVIRONMENT=Development
+      - SQL_SERVER_CONNECTION_STRING=Server=localhost,1433;Database=localdb;User Id=sa;Password=Admin@123;Persist Security Info=False;Timeout=300;MultipleActiveResultSets=true;Application Name=dotnet-demo-mssql;TrustServerCertificate=True;
+    network_mode: host
+    restart: on-failure
+    
+
+  mssql:
+    container_name: mssql-db
+    hostname: mssql-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'Admin@123'
+      MSSQL_PID: 'Developer'
+    network_mode: host
+    volumes:
+      - mssql_data:/var/opt/mssql
+      - ./Mw-WebApplication/sql-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mssql_data:
+    driver: local

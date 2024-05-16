@@ -1,0 +1,14 @@
+# Exclude build artifacts and directories
+bin/
+obj/
+
+# Exclude user-specific and editor-specific files
+.vscode/
+.idea/
+*.user
+*.suo
+*.sln.docstates
+
+# Exclude version control directories
+.git/
+.svn/
