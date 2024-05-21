@@ -1,10 +1,11 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <main>
-      <div>
+      <div className="mb-5">
         <h1>Middleware RUM Example</h1>
         <p className="text-gray-500 text-3xl">Next.js with App Router</p>
       </div>
@@ -27,6 +28,42 @@ export default function Home() {
           session recordings, error reports, and custom logs in the RUM
           dashboard.
         </p>
+        <div>
+          <h3>Custom Logs</h3>
+          <p>Click the buttons below to generate their respective logs.</p>
+          <Button
+            className="m-3"
+            onClick={() => {
+              Middleware.debug("Debug Log");
+            }}
+          >
+            Debug Log
+          </Button>
+          <Button
+            className="m-3"
+            onClick={() => {
+              Middleware.info("Info Log");
+            }}
+          >
+            Info Log
+          </Button>
+          <Button
+            className="m-3"
+            onClick={() => {
+              Middleware.warn("Warn Log");
+            }}
+          >
+            Warn Log
+          </Button>
+          <Button
+            className="m-3"
+            onClick={() => {
+              Middleware.error(new Error("Error log"));
+            }}
+          >
+            Error Log
+          </Button>
+        </div>
       </div>
     </main>
   );
