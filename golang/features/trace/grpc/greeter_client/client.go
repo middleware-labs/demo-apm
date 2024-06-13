@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"flag"
+	"log"
+	"time"
+
 	mw_grpc "github.com/middleware-labs/golang-apm-grpc/grpc"
 	track "github.com/middleware-labs/golang-apm/tracker"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	pb "google.golang.org/grpc/examples/helloworld/helloworld"
-	"log"
-	"time"
 )
 
 const (
@@ -23,9 +24,9 @@ var (
 
 func main() {
 	track.Track(
-		track.WithConfigTag("service", "Your service name"),
-		track.WithConfigTag("projectName", "Your project name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	flag.Parse()
 	// Set up a connection to the server.

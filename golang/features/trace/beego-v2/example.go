@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/beego/beego/v2/server/web"
 	mwbeego "github.com/middleware-labs/golang-apm-beego-beego"
 	track "github.com/middleware-labs/golang-apm/tracker"
@@ -10,9 +11,9 @@ import (
 func main() {
 
 	config, _ := track.Track(
-		track.WithConfigTag("service", "your service name"),
-		track.WithConfigTag("projectName", "your project name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	web.Router("/v24", &MainController{})
 	mware := mwbeego.MiddleWare(config.ServiceName)

@@ -4,12 +4,13 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log"
+	"net"
+
 	mw_grpc "github.com/middleware-labs/golang-apm-grpc/grpc"
 	track "github.com/middleware-labs/golang-apm/tracker"
 	"google.golang.org/grpc"
 	pb "google.golang.org/grpc/examples/helloworld/helloworld"
-	"log"
-	"net"
 )
 
 var (
@@ -29,9 +30,9 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 
 func main() {
 	track.Track(
-		track.WithConfigTag("service", "Your service name"),
-		track.WithConfigTag("projectName", "Your project name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	flag.Parse()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))

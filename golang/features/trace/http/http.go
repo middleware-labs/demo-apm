@@ -14,9 +14,9 @@ func hello(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	go track.Track(
-		track.WithConfigTag("service", "your service name"),
-		track.WithConfigTag("projectName", "your project name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	http.Handle("/hello", mwhttp.MiddlewareHandler(http.HandlerFunc(hello), "hello"))
 	fmt.Println("listening on 8090")

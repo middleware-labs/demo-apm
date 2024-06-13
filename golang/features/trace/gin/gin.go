@@ -12,8 +12,8 @@ import (
 func main() {
 	r := gin.Default()
 	config, _ := track.Track(
-		track.WithConfigTag("service", "your service name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	// logs
 	logger.Error("Error")

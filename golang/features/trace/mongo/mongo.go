@@ -18,9 +18,9 @@ func main() {
 	opts.ApplyURI("mongodb://localhost:27017")
 	r := gin.Default()
 	config, _ := track.Track(
-		track.WithConfigTag("service", "Your service name"),
-		track.WithConfigTag("projectName", "Your project name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	r.Use(g.Middleware(config))
 	r.GET("/test", func(c *gin.Context) {

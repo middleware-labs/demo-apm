@@ -39,9 +39,9 @@ This code should be put wherever GIN package is initialized (typically in the ma
 ```
 r := gin.Default()
 config, _ := track.Track(
-    track.WithConfigTag("service", "your service name"),
-    track.WithConfigTag("projectName", "your project name"),
-    track.WithConfigTag("accessToken", "your access token"),
+    track.WithConfigTag(track.Service, "your service name"),
+    track.WithConfigTag(track.Project, "your project name"),
+    track.WithConfigTag(track.Token, "your access token"),
 )
 r.Use(mwgin.Middleware(config))
 ```

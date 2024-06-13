@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
-	mw_mux "github.com/middleware-labs/golang-apm-mux/mux"
-	track "github.com/middleware-labs/golang-apm/tracker"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/gorilla/mux"
+	mw_mux "github.com/middleware-labs/golang-apm-mux/mux"
+	track "github.com/middleware-labs/golang-apm/tracker"
 )
 
 type spaHandler struct {
@@ -37,9 +38,9 @@ func (h spaHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	config, _ := track.Track(
-		track.WithConfigTag("service", "your service name"),
-		track.WithConfigTag("projectName", "your project name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	r := mux.NewRouter()
 	r.Use(mw_mux.Middleware(config))

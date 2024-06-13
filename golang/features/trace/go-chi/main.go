@@ -9,14 +9,13 @@ import (
 	track "github.com/middleware-labs/golang-apm/tracker"
 )
 
-
 func main() {
-   track.Track(
-   		track.WithConfigTag("service", "your service name"),
-   		track.WithConfigTag("projectName", "your project name"),
-   		track.WithConfigTag("accessToken", "your access token"),
-   	)
-    // define router
+	track.Track(
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
+	)
+	// define router
 	r := chi.NewRouter()
 	r.Use(mwchi.Middleware("my-server", mwchi.WithChiRoutes(r)))
 	r.HandleFunc("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -28,5 +27,3 @@ func main() {
 	// serve router
 	_ = http.ListenAndServe(":8080", r)
 }
-
-

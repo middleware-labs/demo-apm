@@ -2,20 +2,21 @@ package main
 
 import (
 	"database/sql"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	g "github.com/middleware-labs/golang-apm-gin/gin"
 	mw_sql "github.com/middleware-labs/golang-apm-sql/sql"
 	track "github.com/middleware-labs/golang-apm/tracker"
-	"net/http"
 )
 
 func main() {
 	r := gin.Default()
 	config, _ := track.Track(
-		track.WithConfigTag("service", "Your service name"),
-		track.WithConfigTag("projectName", "Your project name"),
-		track.WithConfigTag("accessToken", "your access token"),
+		track.WithConfigTag(track.Service, "your service name"),
+		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag(track.Token, "your access token"),
 	)
 	r.Use(g.Middleware(config))
 	r.GET("/test", func(c *gin.Context) {
