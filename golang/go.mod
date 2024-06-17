@@ -7,7 +7,7 @@ toolchain go1.22.2
 require (
 	github.com/aws/aws-lambda-go v1.47.0
 	github.com/gin-gonic/gin v1.9.1
-	github.com/middleware-labs/golang-apm v1.2.0
+	github.com/middleware-labs/golang-apm v1.3.0
 	github.com/middleware-labs/golang-apm-gin v0.4.4
 	github.com/middleware-labs/golang-apm-http v0.0.2
 	github.com/rs/zerolog v1.33.0
