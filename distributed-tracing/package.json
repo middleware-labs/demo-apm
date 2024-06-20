@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@middleware.io/node-apm": "^1.2.13",
+    "@opentelemetry/core": "^1.24.0"
+  }
+}
