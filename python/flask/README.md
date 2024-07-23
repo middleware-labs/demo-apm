@@ -66,10 +66,28 @@ collect_profiling = true
 ```
 #### Note: You need to replace <strong>\{YOUR-ACCESS-TOKEN\}</strong> with your APM's Access Token.
 
-## Run Your Application
+
+## Setup Virtual Environment
+```
+python -m venv newenv
+```
+```
+source newenv/bin/activate
+```
+```
+pip install -r requirements.txt
+```
+
+## Run Your Application 
+
+### Option 1 : With Host Agent
 To run your application, use the following command:
 ```shell
 middleware-apm run python app.py
+```
+### Option 2 : Serverless Setup
+```shell
+MW_API_KEY=********** MW_TARGET=https://*****.middleware.io:443 middleware-apm run python app.py
 ```
 #### Note: If `middleware.ini` isn't in your project's root, set `MIDDLEWARE_CONFIG_FILE=./path/to/middleware.ini` along with the above run command.
 

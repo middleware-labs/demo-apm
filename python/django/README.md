@@ -102,6 +102,13 @@ Now, you can go ahead to run your application, by using:
 ```python
 DJANGO_SETTINGS_MODULE='helloworld.settings' middleware-apm run python3 manage.py runserver
 ```
+
+If you are running this application in a serverless setup consider adding `MW_API_KEY` and `MW_TARGET` as mentioned in the command below :
+```python
+MW_API_KEY=********** MW_TARGET=https://*****.middleware.io:443 DJANGO_SETTINGS_MODULE='helloworld.settings' middleware-apm run python3 manage.py runserver
+```
+
+
 #### Note: If `middleware.ini` isn't in your project's root, set `MIDDLEWARE_CONFIG_FILE=./path/to/middleware.ini` along with the above run command.
 Then, you can open the URL http://127.0.0.1:8000/ in your web browser.
 
