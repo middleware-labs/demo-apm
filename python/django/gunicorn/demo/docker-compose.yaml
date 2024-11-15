@@ -1,0 +1,7 @@
+version: '3.3'
+services:
+  python-easebuzz:
+    image: easebuzz-python-test
+    command: python3 -m gunicorn -c conf/gunicorn.conf.py --workers=4 --bind 0.0.0.0:8000 --timeout 120 demo.wsgi
+    ports:
+      - 8000:8000

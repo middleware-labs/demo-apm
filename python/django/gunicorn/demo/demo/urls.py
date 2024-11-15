@@ -14,9 +14,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.http import HttpResponse
 from django.contrib import admin
 from django.urls import path
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
+def trigger_success(request):
+    return HttpResponse("Success", status=200)
+
+def trigger_missing(request):
+    return HttpResponse("Missing", status=404)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sentry-debug/', trigger_error),
+    path('success', trigger_success),
+    path('failure', trigger_error),
+    path('notfound', trigger_missing),
 ]

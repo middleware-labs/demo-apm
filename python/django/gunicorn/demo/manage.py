@@ -3,8 +3,6 @@
 import os
 import sys
 
-# from middleware import MwTracker
-# tracker=MwTracker()
 # tracker.django_instrument()
 
 def main():

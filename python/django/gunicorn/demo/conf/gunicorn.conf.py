@@ -1,3 +1,6 @@
+# from middleware import MwTracker
+# tracker=MwTracker()
+
 import django
 django.setup()
 
