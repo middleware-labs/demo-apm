@@ -1,4 +1,0 @@
-# requirements.txt file
-Django==3.1.14
-middleware-apm==1.0.0
-

@@ -1,0 +1,3 @@
+[submodule "python"]
+	path = python
+	url = https://github.com/middleware-labs/demo-apm-python.git
