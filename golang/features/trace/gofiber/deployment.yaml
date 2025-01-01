@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fiber-example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fiber-example
+  template:
+    metadata:
+      labels:
+        app: fiber-example
+    spec:
+      containers:
+      - name: fiber-example
+        image: fiber-example:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fiber-example-service
+spec:
+  type: NodePort
+  selector:
+    app: fiber-example
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
