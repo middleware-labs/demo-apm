@@ -17,8 +17,11 @@ var logger zerolog.Logger
 func main() {
 
 	config, _ := track.Track(
-		track.WithConfigTag(track.Service, "your service name"),
-		track.WithConfigTag(track.Project, "your project name"),
+		track.WithConfigTag("service", "zerolog-test"),
+		track.WithConfigTag("accessToken", "evaddjfmazsdz8qip2cxva99muxv30wq6g6c"),
+		track.WithConfigTag(track.PauseMetrics,true),
+		// track.WithConfigTag(track.Debug,true),
+		// track.WithConfigTag("target", "plo4e.middleware.io:443"),
 	)
 
 	logHook := mwotelzerolog.NewMWOTelHook(config)
@@ -31,7 +34,7 @@ func main() {
 	fmt.Println("listening on 8090")
 
 	// this make continuos requests
-	go makeRequest()
+	// go makeRequest()
 
 	// start the server
 	http.ListenAndServe(":8090", nil)
@@ -58,9 +61,9 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, World!")
 }
 
-func makeRequest() {
-	for {
-		time.Sleep(1 * time.Second)
-		http.Get("http://localhost:8090/hello")
-	}
-}
+// func makeRequest() {
+// 	for {
+// 		time.Sleep(1 * time.Second)
+// 		http.Get("http://localhost:8090/hello")
+// 	}
+// }

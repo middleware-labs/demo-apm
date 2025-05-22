@@ -15,14 +15,20 @@ var attributes = new Dictionary<string, object>
     { "console.exporter", true }
 };
 
-builder.Services.ConfigureMWInstrumentation(attributes);
+// builder.Services.ConfigureMWInstrumentation(attributes);
 
 // Add services to the container.
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables()
+    .Build();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.ConfigureMWInstrumentation(configuration);
+
+builder.Logging.AddConfiguration(configuration.GetSection("Logging"));
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
 
 var app = builder.Build();
 
@@ -34,7 +40,7 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+// app.UseAuthorization();
 
 app.MapControllers();
 
