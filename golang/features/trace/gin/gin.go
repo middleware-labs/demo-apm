@@ -73,11 +73,15 @@ type User struct {
 }
 
 func printUserName(u *User) {
+	if u == nil {
+		fmt.Println("User name is: <nil>")
+		return
+	}
 	fmt.Println("User name is:", u.Name)
 }
 
 func ShowUser(c *gin.Context) {
-	var user *User // user is nil
+	user := &User{Name: "Default User"}
 	printUserName(user)
 }
 
