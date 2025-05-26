@@ -77,6 +77,7 @@ type User struct {
 }
 
 func printUserName(u *User) {
+	if u == nil { fmt.Println("User is nil"); return }
 	fmt.Println("User name is:", u.Name)
 }
 
