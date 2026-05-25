@@ -46,4 +46,19 @@ if (process.env.MW_AUTOGENERATE_TRACING_DATA) {
         }
 
     },3000);
+
+    // Database workload generator: exercises complex / locking / IO-bound /
+    // write-churn queries so they surface in pg_stat_activity, each carrying a
+    // traceparent SQL comment. dbload.js caps row count + VACUUMs on its own, so
+    // this can run indefinitely without filling storage.
+    setInterval(() => {
+        let r = Math.random();
+        if (r < 0.55)      http.get('http://localhost:3002/api/dbload/random');
+        else if (r < 0.68) http.get('http://localhost:3002/api/dbload/complex');
+        else if (r < 0.78) http.get('http://localhost:3002/api/dbload/blocking');
+        else if (r < 0.86) http.get('http://localhost:3002/api/dbload/iowait');
+        else if (r < 0.92) http.get('http://localhost:3002/api/dbload/insert');
+        else if (r < 0.97) http.get('http://localhost:3002/api/dbload/seqscan');
+        else               http.get('http://localhost:3002/api/dbload/delete');
+    }, 4000);
 }
