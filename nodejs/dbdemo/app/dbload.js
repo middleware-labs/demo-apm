@@ -29,6 +29,25 @@ const pool = new Pool({
 
 pool.on('error', (err) => console.error('[dbload] idle client error:', err.message));
 
+// pool.on('error') above only fires for *idle* clients sitting in the pool. A
+// client that is checked out (in use) emits 'error' on itself when its backend
+// dies unexpectedly — e.g. killed by idle_in_transaction_session_timeout, an
+// admin pg_terminate_backend, or a Postgres restart. With no listener that
+// becomes an unhandled 'error' event and crashes the whole process, so every
+// checked-out client gets a handler here.
+//
+// pg REUSES Client objects across checkouts, so attach the listener only once
+// per client — otherwise every pool.connect() stacks another listener on the
+// same object, leaking handlers and tripping MaxListenersExceededWarning.
+async function getClient() {
+    const client = await pool.connect();
+    if (!client._dbloadErrHandler) {
+        client._dbloadErrHandler = true;
+        client.on('error', (err) => console.error('[dbload] checked-out client error:', err.message));
+    }
+    return client;
+}
+
 const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -88,7 +107,7 @@ function seedRows(n) {
 // 1) Heavy analytical read: window functions + percentile + group/join + sort,
 //    then a short pg_sleep so it lingers as an "active" query in pg_stat_activity.
 async function _complexAnalytics() {
-    const client = await pool.connect();
+    const client = await getClient();
     try {
         const t = Date.now();
         const res = await client.query(`
@@ -121,8 +140,8 @@ async function _complexAnalytics() {
 // 2) Lock contention: txn A holds a row lock while txn B waits on the same row.
 //    B shows up in pg_stat_activity with wait_event_type='Lock'.
 async function _lockingBlocking() {
-    const a = await pool.connect();
-    const b = await pool.connect();
+    const a = await getClient();
+    const b = await getClient();
     const id = rnd(1, ROW_TARGET);
     const holdMs = rnd(2000, 5000);
     try {
@@ -147,7 +166,7 @@ async function _lockingBlocking() {
 //    disk (wait_event_type='IO', BufFileRead/Write; temp bytes reported).
 //    Temp files are released automatically when the query ends.
 async function _ioWaitHeavySort() {
-    const client = await pool.connect();
+    const client = await getClient();
     try {
         const t = Date.now();
         await client.query("SET work_mem = '64kB'");
@@ -166,7 +185,7 @@ async function _ioWaitHeavySort() {
 
 // 4) CPU-bound sequential scan over the whole table (per-row md5).
 async function _seqScanHeavy() {
-    const client = await pool.connect();
+    const client = await getClient();
     try {
         const t = Date.now();
         const res = await client.query(`
@@ -183,7 +202,7 @@ async function _seqScanHeavy() {
 // 5) Idle-in-transaction: open a txn, run a query, sit idle, then commit.
 //    Shows as state='idle in transaction' in pg_stat_activity.
 async function _idleInTransaction() {
-    const client = await pool.connect();
+    const client = await getClient();
     const idleMs = rnd(3000, 6000);
     try {
         await client.query('BEGIN');
@@ -203,8 +222,8 @@ async function _idleInTransaction() {
 //    with 'deadlock detected' (40P01), producing an error span. Expected, so we
 //    swallow it and report which rows were involved.
 async function _deadlock() {
-    const a = await pool.connect();
-    const b = await pool.connect();
+    const a = await getClient();
+    const b = await getClient();
     let id1 = rnd(1, ROW_TARGET), id2 = rnd(1, ROW_TARGET);
     while (id2 === id1) id2 = rnd(1, ROW_TARGET);
     let deadlockHit = false;
@@ -239,7 +258,7 @@ async function _insertBatch() {
 
 // 8) Write churn — DELETE: remove a random batch of rows (full scan + sort).
 async function _deleteRandom() {
-    const client = await pool.connect();
+    const client = await getClient();
     const n = rnd(200, 1500);
     try {
         const t = Date.now();

@@ -1,4 +1,4 @@
-FROM node:14.15.5-alpine
+FROM node:18-alpine
 ARG NPM_TOKEN
 # COPY .npmrc .npmrc
 COPY package.json package-lock.json ./
