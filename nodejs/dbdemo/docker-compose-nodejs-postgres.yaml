@@ -1,32 +1,44 @@
 version: "3.4"
-services:  
-  postgresql:
-    image: postgres
-    environment:
-      POSTGRES_DB: 'todo'
-      POSTGRES_HOST_AUTH_METHOD: trust
-      POSTGRES_HOST: localhost
-      POSTGRES_USER: otel-demo
-      POSTGRES_PASSWORD: otel-demo
-    network_mode: host
-    volumes:
-      - ./todo:/docker-entrypoint-initdb.d
-
+services:
+  # postgresql:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_DB: 'todo'
+  #     POSTGRES_HOST_AUTH_METHOD: trust
+  #     POSTGRES_HOST: localhost
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #   network_mode: host
+  #   volumes:
+  #     - ./todo:/docker-entrypoint-initdb.d
   node-apm-demo:
+    restart: unless-stopped
     build:
       context: ./
     # image: ghcr.io/middleware-labs/agent-node-apm:new
     command: node app.js
     environment:
-      MYSQL_HOST: localhost
+      MYSQL_HOST: 172.17.0.1
       MW_AUTOGENERATE_TRACING_DATA: "true"
-      OTEL_EXPORTER_OTLP_ENDPOINT: 127.0.0.1:9319
+      OTEL_EXPORTER_OTLP_ENDPOINT: https://sandbox.middleware.io:443
+      OTEL_EXPORTER_OTLP_HEADERS: authorization=${MW_API_KEY}
+      MW_API_KEY: ${MW_API_KEY}
+      MW_TARGET: http://localhost:9319
       POSTGRES_HOST: localhost
       POSTGRES_DB: todo
-      POSTGRES_USER: otel-demo
-      POSTGRES_PASSWORD: otel-demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      MW_SERVICE_NAME: tutorials
+      OTEL_NODE_RESOURCE_DETECTORS: host
+    volumes:
+      - /etc/machine-id:/etc/machine-id:ro
     network_mode: host
-    depends_on:
-      - postgresql
     ports:
       - 3002:3002
+    # Cap the container's stdout/stderr JSON log so it can never fill the disk
+    # again (this container previously grew a 16GB log). 3 x 20MB = 60MB max.
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "3"

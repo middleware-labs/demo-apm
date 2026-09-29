@@ -25,3 +25,31 @@ ruby/**/log/*
 ruby/**/tmp/*
 !ruby/**/log/.keep
 !ruby/**/tmp/.keep
+
+# Secrets: keep real keys in .env files (commit a .env.example instead)
+.env
+.env.*
+!.env.example
+
+# Local backups / editor swap files
+*.bak
+*.bak-*
+.bak-*/
+*.swp
+*.swo
+*~
+
+# Logs, caches and build output
+*.log
+npm-debug.log*
+.npm/
+.cache/
+__pycache__/
+*.pyc
+.venv/
+venv/
+vendor/bundle/
+
+# OS files
+.DS_Store
+Thumbs.db
