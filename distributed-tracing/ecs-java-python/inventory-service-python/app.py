@@ -27,6 +27,8 @@ REVIEWS = {
 
 
 def average_rating(reviews):
+    if not reviews:
+        return 0
     return round(sum(r["stars"] for r in reviews) / len(reviews), 2)
 
 
