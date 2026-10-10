@@ -26,7 +26,26 @@ inventory-service (Python 3.12 / Flask + gunicorn, :5000)
 - Default VPC in the target region and the `ecsTaskExecutionRole` IAM role
 - Middleware API key and target URL (Installation → Agent → AWS ECS → Auto-Instrumentation)
 
-## Run
+## Run with Terraform (recommended)
+
+`terraform/` creates everything in one step: ECR repos with the images built and pushed, the
+cluster, an IAM execution role, the Cloud Map namespace, the security group, the log group and
+both services, with Middleware instrumentation already in the task definitions (no `mw-ecs` step).
+
+```bash
+cd terraform
+cp terraform.tfvars.example terraform.tfvars   # set mw_api_key / mw_target
+terraform init
+terraform apply
+$(terraform output -raw order_service_ip_command)   # order-service public IP
+terraform destroy
+```
+
+Set `enable_middleware = false` to deploy the plain, uninstrumented apps. Image tags are a hash
+of each service's source, so after fixing the bug `terraform apply` rebuilds and rolls only the
+changed service.
+
+## Run with the AWS CLI scripts
 
 ```bash
 # 1. Build, push to ECR, and create the cluster + both services (Fargate ARM64)
